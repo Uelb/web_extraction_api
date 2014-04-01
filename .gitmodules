@@ -1,0 +1,3 @@
+[submodule "ssql_web_extraction"]
+	path = ssql_web_extraction
+	url = ./ssql_web_extraction/
