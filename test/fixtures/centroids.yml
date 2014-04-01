@@ -1,0 +1,29 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  color: 1.5
+  background-color: 1.5
+  width: 1.5
+  height: 1.5
+  text_decoration: 1.5
+  font_style: 1.5
+  left_alignment: 1.5
+  top_alignment: 1.5
+  z_index: 1.5
+  label: MyString
+  website_id: 
+  level: 1
+
+two:
+  color: 1.5
+  background-color: 1.5
+  width: 1.5
+  height: 1.5
+  text_decoration: 1.5
+  font_style: 1.5
+  left_alignment: 1.5
+  top_alignment: 1.5
+  z_index: 1.5
+  label: MyString
+  website_id: 
+  level: 1
