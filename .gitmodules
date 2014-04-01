@@ -1,3 +1,6 @@
 [submodule "ssql_web_extraction"]
 	path = ssql_web_extraction
 	url = ./ssql_web_extraction/
+[submodule "web-extraction"]
+	path = web-extraction
+	url = git@github.com:Oxynum/web-extraction.git
