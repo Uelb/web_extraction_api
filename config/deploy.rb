@@ -42,19 +42,15 @@ namespace :deploy do
   desc 'Restart application'
   task :restart do
     on roles(:app), in: :sequence, wait: 5 do
-      # Your restart mechanism here, for example:
-      # execute :touch, release_path.join('tmp/restart.txt')
+      execute :touch, release_path.join('tmp/restart.txt')
     end
   end
 
   desc "Symlink shared config files"
   task :symlink_config_files do
-      run "#{ try_sudo } ln -s #{ deploy_to }/shared/config/database.yml #{ current_path }/config/database.yml"
-  end
-
-  desc "Restart Passenger app"
-  task :restart do
-      run "#{ try_sudo } touch #{ File.join(current_path, 'tmp', 'restart.txt') }"
+    on roles(:app), in: :sequence, wait: 5 do
+      execute :ln, "-s", deploy_to.to_s + "/shared/config/database.yml", release_path.join('config/database.yml')
+    end
   end
 
   after :publishing, :restart
@@ -70,6 +66,4 @@ namespace :deploy do
 
 end
 
-after "deploy", "deploy:symlink_config_files"
-after "deploy", "deploy:restart"
-after "deploy", "deploy:cleanup"
+after "deploy", "deploy:symlink_config_files", "deploy:restart", "deploy:cleanup"
