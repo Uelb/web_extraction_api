@@ -66,4 +66,5 @@ namespace :deploy do
 
 end
 
-after "deploy", "deploy:symlink_config_files", "deploy:restart", "deploy:cleanup"
+before "deploy:updated", "deploy:symlink_config_files"
+after "deploy", "deploy:restart", "deploy:cleanup"
