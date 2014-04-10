@@ -1,0 +1,26 @@
+.col-md-8.col-md-offset-2
+  .panel-group#accordion
+    .panel.panel-default
+      .panel-heading
+        %h4.panel-title
+          %a{"data-toggle" => "collapse", "data-parent" => "#accordion", href: "#collapseOne" }
+            Extract data
+      #collapseOne.panel-collapse.collapse.in
+        .panel-body
+          todo...
+    .panel.panel-default
+      .panel-heading
+        %h4.panel-title
+          %a{"data-toggle" => "collapse", "data-parent" => "#accordion", href: "#collapseTwo" }
+            Retrieve those data
+      #collapseTwo.panel-collapse.collapse
+        .panel-body
+          todo...
+    .panel.panel-default
+      .panel-heading
+        %h4.panel-title
+          %a{"data-toggle" => "collapse", "data-parent" => "#accordion", href: "#collapseThree" }
+            Use SuperSQL to output those data
+      #collapseThree.panel-collapse.collapse
+        .panel-body
+          todo

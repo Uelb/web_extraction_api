@@ -14,4 +14,16 @@ class ApplicationController < ActionController::Base
     headers['Access-Control-Allow-Headers'] = 'Origin, X-Requested-With, Content-Type, Accept, Authorization, X-CSRF-Token'
     headers['Access-Control-Max-Age'] = "1728000"
   end
+
+  protected
+
+  def after_sign_in_path_for(resource)
+    new_website_path
+  end
+
+  # Overwriting the sign_out redirect path method
+  def after_sign_out_path_for(resource_or_scope)
+    root_path
+  end
+
 end

@@ -1,0 +1,33 @@
+%h1.page-header Extract data from a website
+.col-md-8.col-md-offset-2
+  = form_tag websites_extraction_path, method: :get do
+    .form-group
+      = label_tag :url, 'Website URL (complete), just copy and paste it '
+      = text_field_tag :url, "", class: 'form-control', placeholder: "Enter the URL here..."
+    = button_tag "Submit", class: ['btn', 'btn-default']
+    %hr
+    .form_group
+      =label_tag :weights, 'If you want to modify the weights of the properties used'
+      .row
+        .col-md-2=label_tag 'weights[color]', "Color :"
+        .col-md-2=text_field_tag 'weights[color]', "", class: 'form-control', placeholder: '1.00'
+        .col-md-2=label_tag 'weights[background_color]', "Bg color :"
+        .col-md-2=text_field_tag 'weights[background_color]', "", class: 'form-control', placeholder: '1.00'
+        .col-md-2=label_tag 'weights[width]', "Width :"
+        .col-md-2=text_field_tag 'weights[width]', "", class: 'form-control', placeholder: '1.00'
+      %br
+      .row  
+        .col-md-2=label_tag 'weights[height]', "Height :"
+        .col-md-2=text_field_tag 'weights[height]', "", class: 'form-control', placeholder: '1.00'
+        .col-md-2=label_tag 'weights[text_decoration]', "Text Deco :"
+        .col-md-2=text_field_tag 'weights[text_decoration]', "", class: 'form-control', placeholder: '1.00'
+        .col-md-2=label_tag 'weights[font_style]', "Font style :"
+        .col-md-2=text_field_tag 'weights[font_style]', "", class: 'form-control', placeholder: '1.00'
+      %br
+      .row
+        .col-md-2=label_tag 'weights[left_alignment]', "Left alignment :"
+        .col-md-2=text_field_tag 'weights[left_alignment]', "", class: 'form-control', placeholder: '1.00'
+        .col-md-2=label_tag 'weights[top_alignment]', "Top alignment :"
+        .col-md-2=text_field_tag 'weights[top_alignment]', "", class: 'form-control', placeholder: '1.00'
+        .col-md-2=label_tag 'weights[z_index]', "Z index :"
+        .col-md-2=text_field_tag 'weights[z_index]', "", class: 'form-control', placeholder: '1.00'

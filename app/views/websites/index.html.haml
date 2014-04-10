@@ -1,0 +1,19 @@
+%h1.page-header List of extracted websites
+%table.table
+  %thead
+    %tr
+      %th #
+      %th Url
+      %th Labels
+  %tbody
+    - @websites.each_with_index do |website, index|
+      %tr
+        %td{rowspan: website.labels.size}= website.id
+        %td{rowspan: website.labels.size}= website.url
+        %td= website.labels.first.value
+        %td= link_to "Show", website_label_items_path(website, website.labels.first)
+      - website.labels.each_with_index do |label, index|
+        - if index != 0
+          %tr
+            %td= label.value
+            %td= link_to "Show", website_label_items_path(website,label)

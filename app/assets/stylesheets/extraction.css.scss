@@ -1,0 +1,131 @@
+.extraction-navbar {
+  background-color: #222;
+  border: 1px solid transparent;
+  border-color: #090909;
+  border-radius: 0;
+  border-width: 0 0 1px;
+  box-sizing: border-box;
+  display: block;
+  font-family: "Helvetica Neue", Helvetica, Arial, sans-serif;
+  left: 0;
+  margin-bottom: 20px;
+  min-height: 50px;
+  position: fixed;
+  right: 0;
+  top: 0;
+  z-index: 2147483647;
+  
+  a {
+    color: #999;
+    font-size: 18px;
+    line-height: 45px;
+    margin-left: 80px;
+    text-decoration: none;
+    vertical-align: middle;
+  }
+  
+  .extraction-left {
+    float: left;
+  }
+  
+  .extraction-center {
+    line-height: 45px;
+    margin: auto;
+    text-align: center;
+    width: 50%;
+
+    img {
+      cursor: pointer;
+      margin-left: 15px;
+      margin-right: 15px;
+      vertical-align: middle;
+    }
+
+    .selected {
+      border: #f00 3px solid;
+      border-radius: 5pc;
+    }
+
+  }
+
+  .extraction-right {
+    color: #fff;
+    float: right;
+    line-height: 45px;
+    margin-right: 80px;
+    vertical-align: middle;
+  }
+
+  button {
+    border: 1px solid transparent;
+    border-radius: 4px;
+    cursor: pointer;
+    display: inline-block;
+    font-size: 14px;
+    font-weight: 400;
+    line-height: 1.42857143;
+    margin-left: 30px;
+    padding: 6px 12px;
+    text-align: center;
+    vertical-align: middle;
+    white-space: nowrap;
+
+    &:active {
+      background-image: none;
+      -webkit-box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+      box-shadow: inset 0 3px 5px rgba(0, 0, 0, .125);
+      outline: 0;
+    }
+  }
+
+  .extraction-button {
+    background-color: #fff;
+    background-image: none;
+    color: #333;
+
+    &:hover,
+    &:active {
+      background-color: #ebebeb;
+      border-color: #adadad;
+      color: #333;
+    }
+  }
+
+  .extraction-reset-button {
+    background-color: #d9534f;
+    background-image: none;
+    color: #fff;
+
+    &:hover,
+    &:active {
+      background-color: #d2322d;
+      border-color: #ac2925;
+      color: #fff;
+    }
+  }
+
+  .extraction-submit-button {
+    background-color: #5cb85c;
+    border-color: #4cae4c;
+    color: #fff;
+  }
+
+  #extraction-label-button {
+    margin-left: 10px;
+  }
+}
+
+#original_page {
+  padding-top: 50px;
+}
+
+.highlight {
+  background-color: #7fff00;
+  border-radius: 10px;
+  color: #000080;
+}
+
+.selected_highlight {
+  background-color: #59b200;
+  color: #000;
+}

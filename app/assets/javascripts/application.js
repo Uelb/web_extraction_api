@@ -13,4 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
-//= require_tree .
+//= require websites
+//= require flash_messages
+//= require jquery.jgrowl.min
+//= require bootstrap.js

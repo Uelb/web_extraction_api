@@ -1,0 +1,13 @@
+%h2.page-header 
+  List of extracted labels for the website 
+  = @website.url
+%table.table.table-hover
+  %thead
+    %tr
+      %th #
+      %th Name
+  %tbody
+    - @labels.each_with_index do |label, index|
+      %tr
+        %td= label.id
+        %td= label.value

@@ -1,0 +1,15 @@
+= content_for :head do
+  =stylesheet_link_tag "sign_in"
+.container
+  = form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'form-signin', role: :form} ) do |f|
+    %h2.form-signin-heading Sign in 
+    = f.email_field :email, autofocus: true, class: 'form-control', placeholder: "Email address"
+    = f.password_field :password, autocomplete: "off", class: 'form-control', placeholder: "Password"
+
+    - if devise_mapping.rememberable?
+      = f.label :remember_me, class: :checkbox do
+        = f.check_box :remember_me
+        Remember me
+    = f.button "Sign in", class: ['btn', 'btn-lg', 'btn-primary', 'btn-block']
+    %br
+    = render "devise/shared/links"

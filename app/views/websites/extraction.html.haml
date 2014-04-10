@@ -1,0 +1,23 @@
+!!!
+%html
+  %head
+    =raw(@head)
+    = stylesheet_link_tag "extraction", "jquery.ui.theme", "jquery.jgrowl.min"
+    =javascript_include_tag "jquery", "ssql_ui/ui","//cdnjs.cloudflare.com/ajax/libs/underscore.js/1.5.2/underscore-min.js", "extraction/main", "jquery.jgrowl.min"
+    %meta{name: :url, content: @url}
+  %body
+    .extraction-navbar
+      .navbar-header.extraction-left
+        %a{href: "#"} Web extraction engine
+      .extraction-right
+        %span Choose the level of the extraction
+        =select_tag :level, options_for_select([1,2,3,4,5], 2)
+        %button.extraction-button{'data-container' => "body", 'data-toggle' => "popover", 'data-placement' => "bottom"} Label
+        %button.extraction-reset-button Reset
+        %button.extraction-submit-button Save
+      .extraction-center
+        =image_tag "cross.png", size: "32x32", class: [:selected, :cross]
+        =image_tag "plus.png", size: "32x32", class: :plus
+        / # =image_tag "minus.png", size: "32x32", class: :minus
+    #original_page
+      = raw(@body)

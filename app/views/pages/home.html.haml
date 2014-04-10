@@ -1,0 +1,26 @@
+.jumbotron
+  .container
+    %h1 Welcome, ようこそ, Bienvenue!
+    %p 
+      This website will help you extract data from any webpage and use them with any of your project. If you look for an easy way to display the extracted data, let me refer you to the
+      =link_to "SSQL project.", "http://ssql.db.ics.keio.ac.jp/"
+    %p 
+      %a.btn.btn-primary.btn-lg{role: "button"} Learn more »
+
+.container
+  .row
+    .col-md-4
+      %h2 Keep It Simple, Stupid
+      %p The KISS principle, that is the philosophy, we provide a simple user interface allowing you to extract data from any webpage easily. Our algorithm is only based on what you and we can see, not on a DOM tree, or on some tag names. The extraction we are operating sticks to what you experience, and the only thing we ask you is some clicks !
+      %p
+        %a.btn.btn-default{href: about_path,role: "button"} View details »
+    .col-md-4
+      %h2 What about the output ?
+      %p You have access to your extracted data in XML and JSON, 2 of the most used data representation language on the internet ! And if it is not enough for you, we still have a solution, SuperSQL ! An SQL based syntax language allowing you to produce easily websites, mobile websites, ... This language can be connected to our API without any further configuration ! Check it out
+      %p
+        %a.btn.btn-default{href: "http://ssql.db.ics.keio.ac.jp", role: "button"} View details »
+    .col-md-4
+      %h2 Who are we ?
+      %p The developers of this project are members of the Toyama Laboratory of Keio University in Japan. Any questions, feedback or requests are very welcome. You can write to us in English, Japanese or French and we will try to answer as soon as possible. The main developer of this project, Thomas, is really interested in every new web technologies, Ruby On Rails, AngularJS, BackboneJS, and so on...
+      %p
+        %a.btn.btn-default{href: contact_path, role: "button"} View details »

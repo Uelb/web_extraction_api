@@ -30,3 +30,8 @@ group :doc do
 end
 
 gem 'rufus-scheduler'
+gem 'haml-rails'
+gem 'bootstrap-sass', '~> 3.1.1'
+gem 'nokogiri'
+gem 'jquery-ui-rails'
+gem 'devise'

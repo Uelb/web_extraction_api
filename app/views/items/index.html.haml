@@ -1,0 +1,15 @@
+%h2.page-header 
+  List of extracted items for the label 
+  %span.text-primary= @label.value
+  of the website
+  %span.text-success= @website.url
+%table.table.table-hover
+  %thead
+    %tr
+      %th #
+      %th value
+  %tbody
+    - @items.each_with_index do |item, index|
+      %tr
+        %td= item.id
+        %td= item.value

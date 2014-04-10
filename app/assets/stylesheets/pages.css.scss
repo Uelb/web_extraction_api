@@ -1,0 +1,21 @@
+// Place all the styles related to the pages controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+.wrapper {
+  padding-bottom: 48px;
+  padding-left: 30px;
+  padding-right: 30px;
+  padding-top: 48px;
+}
+
+.custom-list {
+  list-style-type: circle;
+  margin: 0;
+  padding: 1px 0;
+
+  li {
+    margin-bottom: 10px;
+    margin-top: 10px;
+  }
+}

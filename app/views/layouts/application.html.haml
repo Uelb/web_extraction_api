@@ -1,0 +1,38 @@
+!!!
+%html
+  %head>
+    %title Web extraction engine
+    = stylesheet_link_tag    "application", "pages", media: "all", "data-turbolinks-track" => true
+    = javascript_include_tag "application", "data-turbolinks-track" => true
+    = yield :head
+    = csrf_meta_tags
+  %body
+    - if flash[:notice]||flash[:alert]
+      .notice=flash[:notice]||flash[:alert]
+    .navbar.navbar-inverse.navbar-fixed-top{role: "navigation"}
+      .container
+        .navbar-header
+          %a.navbar-brand{href: root_path} Web extraction engine
+        .collapse.navbar-collapse
+          %ul.nav.navbar-nav
+            %li
+              %a{href: root_path} Home
+            %li
+              %a{href: about_path} About
+            %li
+              %a{href: contact_path} Contact
+            - if user_signed_in?
+              %li
+                %a{href: new_website_path} Dashboard
+          - if user_signed_in?
+            .navbar-right.navbar-form= link_to('Logout', destroy_user_session_path, :method => :delete, class: ['btn', 'btn-danger'])
+          - else
+            = form_tag session_path(:user), class: ['navbar-form', 'navbar-right'], role: :form do |f|
+              .form-group
+                = text_field_tag 'user[email]', "", placeholder: "Email", class: 'form-control'
+              .form-group
+                = password_field_tag 'user[password]', "", placeholder: "Password", class: 'form-control'
+              =button_tag "Sign in", class: ['btn', 'btn-primary']
+              = link_to "Sign up", new_user_registration_path, class: ['btn', 'btn-success']
+    =yield
+    = render 'pages/footer'
