@@ -12,6 +12,7 @@ set :deploy_to, '/home/tommyjam/toobrok'
 set :user, 'tommyjam'
 set :use_sudo, false
 set :rails_env, "production"
+set :git_enable_submodules, 1
 # Default value for :scm is :git
 # set :scm, :git
 
