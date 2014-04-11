@@ -36,9 +36,6 @@ set :pty, true
 
 # Default value for keep_releases is 5
 # set :keep_releases, 5
-set :bundle_dir, ''
-set :bundle_flags, '--system --quiet'
-set :rvm_ruby_string, :local  
 
 namespace :deploy do
 
@@ -69,7 +66,5 @@ namespace :deploy do
 
 end
 
-before 'deploy:setup', 'rvm:install_rvm'
-before 'deploy:setup', 'rvm:install_ruby'
 before "deploy:updated", "deploy:symlink_config_files"
 after "deploy", "deploy:restart", "deploy:cleanup"
