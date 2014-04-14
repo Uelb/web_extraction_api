@@ -78,7 +78,16 @@ namespace :deploy do
     end
   end
 
+  desc "Install npm modules"
+  task: :npm_install do 
+    on roles(:app), in: :sequence, wait: 5 do
+      within release_path.join('web-extraction') do 
+        execute "npm install"
+      end
+    end
+  end
+
 end
 
 before "deploy:updated", "deploy:symlink_config_files"
-after "deploy", "deploy:restart", "deploy:cleanup"
+after "deploy", "deploy:restart", "deploy:cleanup", "deploy:npm_install"
