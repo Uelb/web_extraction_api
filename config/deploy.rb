@@ -37,6 +37,20 @@ set :pty, true
 # Default value for keep_releases is 5
 # set :keep_releases, 5
 
+namespace :log do
+  desc "tail production log files" 
+  task :tail do
+    on roles(:app), in: :sequence, wait: 5 do
+      trap("INT") { puts 'Interupted'; exit 0; }
+      execute :tail, "-f", "#{current_path}/log/production.log" do |channel, stream, data|
+        puts  # for an extra line break before the host name
+        puts "#{channel[:host]}: #{data}" 
+        break if stream == :err
+      end
+    end
+  end
+end
+
 namespace :deploy do
 
   desc 'Restart application'

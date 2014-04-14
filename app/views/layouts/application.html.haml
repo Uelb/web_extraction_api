@@ -2,7 +2,8 @@
 %html
   %head>
     %title Web extraction engine
-    = stylesheet_link_tag    "application", "pages", media: "all", "data-turbolinks-track" => true
+    = stylesheet_link_tag    "application", media: "all", "data-turbolinks-track" => true
+    = stylesheet_link_tag "pages", "data-turbolinks-track" => true
     = javascript_include_tag "application", "data-turbolinks-track" => true
     = yield :head
     = csrf_meta_tags
@@ -44,7 +45,7 @@
                 = text_field_tag 'user[email]', "", placeholder: "Email", class: 'form-control'
               .form-group
                 = password_field_tag 'user[password]', "", placeholder: "Password", class: 'form-control'
-              =button_tag t('layout.sign_in'), class: ['btn', 'btn-primary']
-              = link_to t('layout.sign_up'), new_user_registration_path, class: ['btn', 'btn-success']
+              =button_tag t('layout.sign_in'), class: ['btn', 'btn-primary', 'btn-sm']
+              = link_to t('layout.sign_up'), new_user_registration_path, class: ['btn', 'btn-success', 'btn-sm']
     =yield
     = render 'pages/footer'
