@@ -79,7 +79,7 @@ namespace :deploy do
   end
 
   desc "Install npm modules"
-  task: :npm_install do 
+  task :npm_install do 
     on roles(:app), in: :sequence, wait: 5 do
       within release_path.join('web-extraction') do 
         execute "npm install"
