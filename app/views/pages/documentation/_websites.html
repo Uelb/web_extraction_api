@@ -1,0 +1,12 @@
+<pre class="brush: js">
+  $.get('http://www.toobrok.com/websites.json', function(data){
+    //process your data here
+    //for example
+    for(var i=0; i < data.length; i++){
+      website = data[i];
+      url = website.url;
+      id = website.id
+      // do something with the url or the id.
+    }
+  })
+</pre>

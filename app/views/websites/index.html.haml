@@ -1,10 +1,10 @@
-%h1.page-header List of extracted websites
+%h1.page-header= t('websites.index.header')
 %table.table
   %thead
     %tr
       %th #
       %th Url
-      %th Labels
+      %th= t('label.many')
   %tbody
     - @websites.each_with_index do |website, index|
       %tr

@@ -1,13 +1,13 @@
-%h1.page-header Extract data from a website
+%h1.page-header=t('websites.new.header')
 .col-md-8.col-md-offset-2
   = form_tag websites_extraction_path, method: :get do
     .form-group
-      = label_tag :url, 'Website URL (complete), just copy and paste it '
-      = text_field_tag :url, "", class: 'form-control', placeholder: "Enter the URL here..."
-    = button_tag "Submit", class: ['btn', 'btn-default']
+      = label_tag :url, t('websites.new.url')
+      = text_field_tag :url, "", class: 'form-control', placeholder: t('websites.new.url_ph')
+    = button_tag t('websites.new.submit'), class: ['btn', 'btn-default']
     %hr
     .form_group
-      =label_tag :weights, 'If you want to modify the weights of the properties used'
+      =label_tag :weights, t('websites.new.weights_notice')
       .row
         .col-md-2=label_tag 'weights[color]', "Color :"
         .col-md-2=text_field_tag 'weights[color]', "", class: 'form-control', placeholder: '1.00'

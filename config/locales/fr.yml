@@ -1,0 +1,145 @@
+# French translations for Ruby on Rails
+# by Christian Lescuyer (christian@flyingcoders.com)
+# contributors:
+#  - Sebastien Grosjean - ZenCocoon.com
+#  - Bruno Michel - http://github.com/nono
+#  - Tsutomu Kuroda - http://github.com/kuroda (t-kuroda@oiax.jp)
+# Emended by Benjamin des Gachons and Patrick Chew : <http://www.fitima.org/docs/fiche.pdf>
+
+fr:
+  label:
+    many: Étiquettes
+  layout:
+    home: Accueil
+    about: A propos
+    contact: Contact
+    dashboard: Tableau de bord
+    logout: Se déconnecter
+    documentation: Documentation
+    help: Aide
+    extraction:
+      new: Nouvelle extraction
+    website:
+      index: Liste des extractions
+    sign_in: Se connecter
+    sign_up: Créer un compte
+  home:
+    welcome_message: Cette application vous aidera à extraire des données de n'importe quelle page web et de les utiliser dans tous vos projets. Si vous cherchez un moyen efficace d'afficher ces informations, vous devriez vous intéresser au
+    ssql_project: projet SSQL.
+    learn_more: En apprendre plus
+    kiss: "Le principe KISS est la philosophie que nous adoptons, ainsi, nous vous fournissons une interface utilisateur vous permettant d'extraire facilement des données de n'importe quelle page web. Notre algorithme est basé sur ce que vous voyez, et seulement ce que vous voyez, nous ne prenons pas en compte les noms de balises par exemple. La seule chose que nous vous demandons est d'opérer quelques clics !"
+    output:
+      head: Le format de sortie
+      content: "Vous avez accès au produit de votre extraction en JSON, en XML, et en CSV, autant dire dans le format que vous voulez ! Et si ce n'est pas assez pour vous, nous avons aussi la solution, SuperSQL ! Un language dont la syntaxe est basée sur SQL et vous permettant en quelques minutes de produire des sites internets pour desktop et mobile. SuperSQL étant développé par notre laboratoire, le projet ne nécessite aucune configuration supplémentaire pour pouvoir se connecter à notre API."
+    who:
+      head: Qui sommes nous ?
+      content: Les développeurs de ce projet font partie du laboratoire Toyama Lab de l'université de Keio au Japon. Toutes questions, remarques ou requêtes sont les bienvenues. Vous pouvez nous écrire en anglais, japonais ou français. Nous ferons en sorte de vous répondre le plus tôt possible. Le développeur principal de ce projet, Thomas, est très intéressé par toutes les nouvelles technologies web, Ruby On Rails, AngularJS, BackboneJS et autres...
+  about:
+    extraction:
+      head: Comment fonctionne l'extraction ?
+      content: "Elle est basée sur des propriétés visuelles du résultat de l'affichage du document HTML. Donc en fonction de la police, de la position et autres... Chacune de ces propriétés ont un poids différents dans l'opération, la couleur du texte peut être considérée plus importante que la position de l'élément par exemple. Nous ne nous basons pas sur le noms des balises ou la position de l'élément dans l'arbre HTML."
+    labelling:
+      head: Le processus d'étiquettage
+      content: Vous devez passer par le processus d'étiquettage des données pour nous permettre de savoir quelles informations vous souhaitez extraire et comment nommer cette information.
+    retrieval:
+      head: Comment accéder au résultat ?
+      content:
+        a: Ceci est expliqué plus en détail dans notre
+        b: documentation.
+        c: "Mais, grossomodo, un webservice suivant l'architecture REST est à votre disposition et vous pouvez récupérer l'information en JSON, XML, CSV et XLS. Nous nous assurons que l'information à laquelle vous accéder soit rafraichie toutes les heures."
+    ssql:
+      head: Le projet SSQL
+      content: Si vous pouvez aujourd'hui l'utiliser pour d'autre projets, ce système d'extraction a été créée dans l'optique d'augmenter le nombres de possibilités de format de données d'entrées de SuperSQL; afin que l'on puisse non seulement connecter une base de données relationnelle classique, mais aussi trouver des informations directement de ce que l'on peut voir sur Internet.
+    community:
+      head: La communauté
+      content: Faites attention, lorsque vous étiquettez des informations, même si les autres utilisateurs n'ont pas conscience de qui les a étiquettées, ils pourront tout de même utiliser celles-ci afin de gagner du temps en ne passant pas par le processus d'étiquettage si ce qu'ils veulent extraire a déjà été étiqueté par vous ! Mais ce n'est pas à sens unique, vous pourrez bien sur profiter de ce système pour  extraire des informations encore plus rapidement.
+  contact:
+    form: Formulaire de contact
+    name: Votre nom
+    email: Votre adresse email
+    content: Remarques
+    send: Envoyer
+    address: Adresse
+    check:
+      head: Encore plus de projets !
+      content: Le Web extraction engine n'est pas le seul projet du laboratoire Toyama ! Si vous êtes intéressés par d'autres de ces incroyables projets.
+  sessions:
+    new:
+      email: Adresse email
+      password: Mot de passe
+      remember_me: Se souvenir de moi
+      password_confirmation: Confirmation du mot de passe
+  password:
+    new:
+      password_forgotten: Mot de passe oublié ?
+      instructions: Envoyer les instructions
+  websites:
+    index:
+      header: Liste des extractions effectuées
+    new:
+      header: Extraire des données d'un site internet
+      url: URL du site (complète), faîtes juste un copier-coller
+      url_ph: Entrer l'URL ici...
+      submit: Envoyer
+      weights_notice: "Si vous souhaitez modifier le poids des propriétés utilisées :"
+  documentation:
+    a: 
+      head: Extraire des données
+      content:
+        basics:
+          head: Utilisation de l'interface - Les bases
+          content: |
+            Extraire des données d'un site internet n'a jamais été aussi facile, il vous suffit de cliquer sur le menu nouvelle extraction et de copier-coller l'url du site dont vous voulez extraire des informations, une fois que c'est fait, attendez un peu, l'analyse peut prendre un peu de temps selon le site. 
+            Une fois que l'interface utilisateur est affichée, vous pouvez bouger votre souris sur les différents éléments de la page, lorsque votre souris passera sur un élément qui peut être extrait, tous les autres éléments du même groupe seront mis en évidence.
+            Vous pouvez alors cliquer pour sélectionner ces éléments. Plusieurs choix s'offrent ensuite à vous, soit l'ensemble sélectionné est correcte et vous souhaitez l'extraire tel quel, auquel cas cliquer juste sur le bouton Label, et donnez un nom aux éléments de cet ensemble.
+            Le cas échéant, si l'ensemble n'est pas parfait, vous aves accès à différentes opérations permettant d'affiner le résultat.
+        operations:
+          head: Utilisation de l'interface - Les opérations
+          content:
+            +:
+              head: L'addition
+              content: |
+                Vouz avez peut-être remarqué qu'il y a un bouton + et un bouton x sur l'interface. Ces boutons font référence aux différentes opérations que vous pouvez appliquer aux données sélectionnées.
+                Quand le bouton + est sélectionné, vous pouvez ajouter un autre ensemble à l'ensemble sélectionné et considérer cette resource comme unique.
+                Cela vous permet de corriger facilement une extraction incomplète, il suffit de cliquer sur l'autre ensemble lorsque le bouton + est entouré de rouge et le tour est joué. Vous pouvez alors donner un nom/label à ce nouveau groupe.
+            x:
+              head: La multiplication
+              content: |
+                Lorsque le x est sélectionné, si un groupe est déjà sélectionné et que vous cliquez sur un autre, le groupe le plus pertinent englobant ces deux groupes sera sélectionné et mis en évidence.
+                Généralement, cette opération est utilse lorsque l'extraction est trop fine.
+            -:
+              head: La soustraction
+              content: |
+                Cette opération n'a pas encore été mise en place mais elle vous permettra d'ajouter un filtre au processus d'extraction vous donnant la possibilité de supprimer les intrus d'un groupe.
+        level:
+          head: Le niveau d'extraction
+          content: "Un dernier outil pouvant être utile, vous avez le droit de changer le niveau d'extraction par défaut, et donc d'extraire plus ou moins finement. 1 étant le niveau le plus fin (groupes plus petits) et 5 le niveau le moins fin (groupes plus grands). Si vous sentez que les paramètres d'extraction sont trop précis pour vous, n'hésitez pas à changer ce paramètre."
+        save:
+          head: Sauvegarder
+          content: |
+            Lorsque vous avez fini d'étiqueter vos données, il vous suffit de cliquer sur le bouton "Sauvegarder" et vous serez redirigé vers la page affichant la liste des sites disponibles.
+            Si celui que vous venez d'extraire n'est pas encore affiché, c'est normal, attendez une petite minute, rafraîchissez la page, et vous devriez le voir apparaître, de même pour les éléments de ce site.
+    b: 
+      head: Récupérer des données extraites
+      content:
+        head: Le système de requêtes
+        a: |
+          Nous fournissons une API suivant l'architecture REST pour que vous puissiez accéder facilement et dans de nombreux formats à vos données. Je vais vous donner un exemple de requête et vous serez ensuite capable de comprendre comment cela fonctionne.
+          Une des URL de requêtes disponible est :
+        b: |
+          Cela signifie que vous devez envoyer une requête HTTP de type GET à l'URL http://www.toobrok.com/websites.json (si vous souhaitez avoir une réponse sous le format JSON). Les paramètres sont donc indiqués par un deux points et les paramètres optionels entre parenthèses.
+          Donc si les spécifications sont :
+        c: |
+          Vous devez donc envoyer une requête GET à l'URL http://www.toobrok.com/websites/42/labels/titre/items.json par exemple pour accéder à la liste des éléments dont l'étiquette est titre et dont l'identifiant du site internet est 42. 
+          Pour connaître l'identifiant des sites, vous pouvez vous référer à la page correspondante en cliquant sur le bouton à gauche !
+          Voici une liste des URL dont vous avez accès, et pour chacune, un exemple en Javascript/Jquery de comment écrire une requête classique :
+        websites: Liste des sites extraits
+        website_labels: Liste des étiquettes du site dont l'identifiant est précisé
+        website_label_items: Liste des éléments de l'étiquette précisée correspondant au site précisé
+        footer: Il y a aujourd'hui seulement 3 opérations disponibles mais nous travaillons activement pour vous donner de nouvelles possibilités de manipulation des données.
+    c: 
+      head: Utiliser SuperSQL pour afficher les données
+      content:
+    d:
+      head: La communauté ou comment profiter des étiquettes des autres utilisateurs
+      content: TODO...

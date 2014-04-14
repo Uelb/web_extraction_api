@@ -1,0 +1,13 @@
+<pre class="brush: js">
+  $.get('http://www.toobrok.com/websites/42/labels.json', function(data){
+    //process the data here
+    //for example
+    for(var i = 0; i < data.length; i++){
+      label = data[i];
+      id = label.id;
+      website_id = label.website_id;
+      name = label.value
+      //Do something with those information.
+    }
+  })
+</pre>

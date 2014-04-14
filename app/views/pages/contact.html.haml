@@ -4,25 +4,25 @@
 .wrapper
   .container
     .col-md-5.col-md-offset-1
-      %h3 Contact Form
+      %h3=t('contact.form')
       %hr
       = form_for @feedback, url: feedbacks_path, html: { role: :form} do |f|
         .form-group
-          = f.label :name,  "Your name"
+          = f.label :name,  t('contact.name')
           = f.text_field :name, placeholder: "Enter Name", class: 'form-control'
         .form-group
-          = f.label :email,  "Your email"
+          = f.label :email,  t('contact.email')
           = f.email_field :email, placeholder: "Enter email", class: 'form-control'
         .form-group
-          = f.label :content,  "Content"
+          = f.label :content,  t('contact.content')
           = f.text_area :content, class: 'form-control'
-        = f.button "Send", class: ['btn', 'btn-default', 'btn-block']
+        = f.button t('contact.send'), class: ['btn', 'btn-default', 'btn-block']
     .col-md-5.col-md-offset-1
       %h3 Google Map
       %hr
       #map-canvas{style: 'width:100%;height:250px'}
       %hr
-      %h3 Address
+      %h3= t('contact.address')
       %hr
       .col-md-6
         %strong Toyama Laboratory
@@ -45,13 +45,13 @@
   .container
     .well.col-md-offset-1.col-md-11
       .col-md-5
-        %h4 Check it out !
-        %p{style: 'color:#666'} The web extraction engine is not the only project that the Toyama Laboratory is working one ! If you are interested in more awesome projects, please check them out.
+        %h4= t('contact.check.head')
+        %p{style: 'color:#666'}=t('contact.check.content')
       .col-md-5.col-md-offset-1
         %ul.custom-list{style: 'color:#666'}
           %li=link_to "SuperSQL", "http://ssql.db.ics.keio.ac.jp"
           %li=link_to "WIX (Web Index)", "http://kwix.jp"
           %li=link_to "RMX (Rule based Mail Xchange)"
 
-
-
+:javascript
+  $($('.navbar-nav li')[2]).addClass('active')

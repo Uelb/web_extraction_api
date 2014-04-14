@@ -1,19 +1,19 @@
-en:
+ja:
   label:
-    many: Labels
+    many: ラベル
   layout:
-    home: Home
+    home: ホームページ
     about: About
-    contact: Contact
-    dashboard: Dashboard
-    logout: Logout
+    contact: 連絡先
+    dashboard: ダッシュボード
+    logout: ログアウト
     help: Help
     extraction:
       new: New extraction
     website:
       index: Websites List
     documentation: Documentation
-    sign_in: Sign in
+    sign_in: ログイン
     sign_up: Sign up
     password_forgotten: Forgot your password ?
   home:
@@ -58,8 +58,8 @@ en:
       address: Address
   sessions:
     new:
-      email: Email
-      password: Password
+      email: メールアドレス
+      password: パスワード
       remember_me: Remember me
       password_confirmation: Password confirmation
   password:
@@ -103,9 +103,6 @@ en:
               head: The minus operation
               content: |
                This operation is not available yet but it will allow you to add a filter to the extraction process in order to try to delete intruders elements of a group. 
-        level:
-          head: The extraction level
-          content: "A last useful tool, you are able to change the default extraction level, and thus to extract more or less finely. 1 is the finest (bigger groups) and 5 the least fine (smaller groups). If you feel that the extraction parameters are too precise for you, do not hesitate to change this parameter"
         save:
           head: Save
           content: |
@@ -131,7 +128,7 @@ en:
         footer: There are only 3 operations available currently but there will soon be more and you will be able to edit a label name and other similar operations
     c: 
       head: Use SuperSQL to display those data
-      content:
+      content: TODO...
     d:
       head: The community, how to use someone else labels
       content: TODO...

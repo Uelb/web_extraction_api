@@ -13,6 +13,9 @@
 
 ActiveRecord::Schema.define(version: 20140409060821) do
 
+  # These are extensions that must be enabled in order to support this database
+  enable_extension "plpgsql"
+
   create_table "centroids", force: true do |t|
     t.float    "color"
     t.float    "background_color"
@@ -44,7 +47,7 @@ ActiveRecord::Schema.define(version: 20140409060821) do
     t.datetime "updated_at"
   end
 
-  add_index "items", ["label_id"], name: "index_items_on_label_id"
+  add_index "items", ["label_id"], name: "index_items_on_label_id", using: :btree
 
   create_table "labels", force: true do |t|
     t.string   "value"
@@ -68,8 +71,8 @@ ActiveRecord::Schema.define(version: 20140409060821) do
     t.datetime "updated_at"
   end
 
-  add_index "users", ["email"], name: "index_users_on_email", unique: true
-  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true
+  add_index "users", ["email"], name: "index_users_on_email", unique: true, using: :btree
+  add_index "users", ["reset_password_token"], name: "index_users_on_reset_password_token", unique: true, using: :btree
 
   create_table "websites", force: true do |t|
     t.string   "url"
@@ -78,6 +81,6 @@ ActiveRecord::Schema.define(version: 20140409060821) do
     t.integer  "user_id_id"
   end
 
-  add_index "websites", ["user_id_id"], name: "index_websites_on_user_id_id"
+  add_index "websites", ["user_id_id"], name: "index_websites_on_user_id_id", using: :btree
 
 end

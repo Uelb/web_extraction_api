@@ -1,0 +1,10 @@
+<pre class="brush: js">
+  //The resource we are trying to read is called comment
+  $.get("http://www.toobrok.com/websites/42/labels/comment/items", function(data){
+     for(var i = 0; i < data.length; i++){
+       comment = data[i]
+       value = comment.value
+       //Do something with the comment value
+     }
+  })
+</pre>

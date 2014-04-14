@@ -3,9 +3,9 @@
 
 .container
   = form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post, class: 'form-signin', role: :form }) do |f|
-    %h3.form-signin-heading Forgot your password?
+    %h3.form-signin-heading= t('password.new.password_forgotten')
     = devise_error_messages!
-    = f.email_field :email, autofocus: true, class: 'form-control', placeholder: 'Email'
-    = f.button "Send instructions", class: ['btn', 'btn-danger', 'btn-lg', 'btn-block']
+    = f.email_field :email, autofocus: true, class: 'form-control', placeholder: t('sessions.new.email')
+    = f.button t('password.new.instructions'), class: ['btn', 'btn-danger', 'btn-lg', 'btn-block']
     %br
     = render "devise/shared/links"

@@ -1,26 +1,81 @@
+- content_for :head do 
+  =javascript_include_tag "shCore", "shBrushJScript"
+  = stylesheet_link_tag "shCore", "shCoreDjango", "shThemeDjango"
+
 .col-md-8.col-md-offset-2
   .panel-group#accordion
     .panel.panel-default
       .panel-heading
         %h4.panel-title
           %a{"data-toggle" => "collapse", "data-parent" => "#accordion", href: "#collapseOne" }
-            Extract data
+            =t('documentation.a.head')
       #collapseOne.panel-collapse.collapse.in
         .panel-body
-          todo...
+          %h5=t('documentation.a.content.basics.head')
+          =t('documentation.a.content.basics.content')
+          %hr
+          %h5=t('documentation.a.content.operations.head')
+          %ol
+            %li
+              %h6
+                =t('documentation.a.content.operations.content.+.head')
+                =image_tag "plus.png", size: "20x20"
+              =t('documentation.a.content.operations.content.+.content')
+            %li
+              %h6
+                =t('documentation.a.content.operations.content.x.head')
+                =image_tag "cross.png", size: "20x20"
+              =t('documentation.a.content.operations.content.x.content')
+            %li
+              %h6
+                =t('documentation.a.content.operations.content.-.head')
+                =image_tag "minus.png", size: "20x20"
+              =t('documentation.a.content.operations.content.-.content')
+          %hr
+          %h5=t('documentation.a.content.level.head')
+          =t('documentation.a.content.level.content')
+          %hr
+          %h5=t('documentation.a.content.save.head')
+          =t('documentation.a.content.save.content')
     .panel.panel-default
       .panel-heading
         %h4.panel-title
           %a{"data-toggle" => "collapse", "data-parent" => "#accordion", href: "#collapseTwo" }
-            Retrieve those data
+            =t('documentation.b.head')
       #collapseTwo.panel-collapse.collapse
         .panel-body
-          todo...
+          %h5=t('documentation.b.content.head')
+          =t('documentation.b.content.a')
+          %code GET /websites(.:format)
+          =t('documentation.b.content.b')
+          %code GET /websites/:website_id/labels/:label_name/items(.:format)
+          =t('documentation.b.content.c')
+          %h5=t('documentation.b.content.websites')
+          %code GET /websites(.:format)
+          = render 'pages/documentation/websites'
+          %h5=t('documentation.b.content.website_labels')
+          %code GET /websites/:website_id/labels(.:format)
+          = render 'pages/documentation/website_labels'
+          %h5=t('documentation.b.content.website_label_items')
+          %code GET /websites/:website_id/labels/:label_name/items(.:format)
+          = render 'pages/documentation/website_label_items'
+          =t('documentation.b.content.footer')
     .panel.panel-default
       .panel-heading
         %h4.panel-title
           %a{"data-toggle" => "collapse", "data-parent" => "#accordion", href: "#collapseThree" }
-            Use SuperSQL to output those data
+            =t('documentation.c.head')
       #collapseThree.panel-collapse.collapse
         .panel-body
-          todo
+          =t('documentation.c.content')
+    .panel.panel-default
+      .panel-heading
+        %h4.panel-title
+          %a{"data-toggle" => "collapse", "data-parent" => "#accordion", href: "#collapseFour" }
+            =t('documentation.d.head')
+      #collapseFour.panel-collapse.collapse
+        .panel-body
+          =t('documentation.d.content')
+
+:javascript
+  SyntaxHighlighter.all()

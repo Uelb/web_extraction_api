@@ -1,0 +1,32 @@
+.wrapper
+  .container
+    .col-md-8.col-md-offset-2
+      %h3.center.text-primary= t('about.extraction.head')
+      %hr
+      = t('about.extraction.content')
+      %hr
+      %br
+      %h3.center.text-primary= t('about.labelling.head')
+      %hr
+      = t('about.labelling.content')
+      %hr
+      %br
+      %h3.center.text-primary= t('about.retrieval.head')
+      %hr
+      = t('about.retrieval.content.a')
+      =link_to t('about.retrieval.content.b'), documentation_path
+      = t('about.retrieval.content.c')
+      %hr
+      %br
+      %h3.center.text-primary= t('about.ssql.head')
+      %hr
+      = t('about.ssql.content')
+      %hr
+      %br
+      %h3.center.text-primary= t('about.community.head')
+      %hr
+      = t('about.community.content')
+      %hr
+
+:javascript
+  $($('.navbar-nav li')[1]).addClass('active')
