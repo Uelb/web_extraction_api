@@ -68,6 +68,20 @@ class User < ActiveRecord::Base
     )
   end
 
+  def self.linkedin_auth auth_hash
+    @user = find_provider_user auth_hash
+    return @user if @user
+    generated_password = Devise.friendly_token.first 8
+    @user = User.create(
+      email:                  auth_hash["info"]["email"],
+      nickname:               auth_hash["info"]["first_name"] + auth_hash["info"]["last_name"],
+      password:               generated_password,
+      password_confirmation:  generated_password,
+      provider:               auth_hash['provider'],
+      uid:                    auth_hash["uid"]
+    )
+  end
+
   def self.find_provider_user auth_hash
     where(provider: auth_hash[:provider], uid: auth_hash[:uid]).first
   end
