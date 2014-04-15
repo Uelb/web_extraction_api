@@ -14,7 +14,7 @@
         .navbar-collapse.collapse
           %ul.nav.navbar-nav.navbar-left
             %li
-              =link_to "#{current_user.email}", "#"
+              =link_to "#{current_user.nickname || current_user.email}", "#"
           .navbar-right.navbar-form= link_to(t('layout.logout'), destroy_user_session_path, :method => :delete, class: ['btn', 'btn-danger'])
           %ul.nav.navbar-nav.navbar-right
             %li.dropdown

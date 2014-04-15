@@ -3,37 +3,37 @@ ja:
     many: ラベル
   layout:
     home: ホームページ
-    about: About
+    about: Toobrokとは
     contact: 連絡先
     dashboard: ダッシュボード
     logout: ログアウト
-    help: Help
+    help: ヘルプ
     extraction:
       new: New extraction
     website:
       index: Websites List
     documentation: Documentation
     sign_in: ログイン
-    sign_up: Sign up
-    password_forgotten: Forgot your password ?
+    sign_up: 新規登録
+    password_forgotten: パスワードを忘れたら？
   home:
-    welcome_message: This website will help you extract data from any webpage and use them with any of your project. If you look for an easy way to display the extracted data, let me refer you to the
-    learn_more: Learn more
-    ssql_project: SSQL project.
-    kiss:  The KISS principle, that is our philosophy, we provide a simple user interface allowing you to extract data from any webpage easily. Our algorithm is only based on what you and we can see, not on a DOM tree, or on some tag names. The extraction we are operating sticks to what you experience, and the only thing we ask you is some clicks !
+    welcome_message: このサイトは、ウェブページからデータを抽出し、そのデータを利用したい人に向けたものです。もし、抽出したデータを簡単に表現したいなら、
+    learn_more: 詳細はこちら
+    ssql_project: SSQLを確認して下さい。
+    kiss: KISSの原則 (The KISS principle) を守り、シンプルなインターフェースを提供します。このシステムのアルゴリズムは、DOMツリーや、タグを導入せず、理解できることをベースにしています。いつものようにクリックするだけで、簡単に操作できます！ 
     output:
-      head: What about the output ?
-      content: "You have access to your extracted data in XML and JSON, 2 of the most used data representation language on the internet ! And if it is not enough for you, we still have a solution, SuperSQL ! An SQL based syntax language allowing you to produce easily websites, mobile websites, ... This language can be connected to our API without any further configuration ! Check it out"
+      head: 取得できるもの
+      content: 入力したウェブページから、よく利用されるXMLとJSONを生成します。もし、他の形式でほしいものがあるのなら、SuperSQLがあります！SQLの文法をベースにした言語で、簡単にウェブサイトや、モバイル版ウェブページを作成することができます。これは、私たちが実装したAPIを導入するだけで可能です！チェックしてみてください。
     who:
-      head: Who are we ?
-      content: "The developers of this project are members of the Toyama Laboratory of Keio University in Japan. Any questions, feedback or requests are very welcome. You can write to us in English, Japanese or French and we will try to answer as soon as possible. The main developer of this project, Thomas, is really interested in every new web technologies, Ruby On Rails, AngularJS, BackboneJS, and so on..."
+      head: 開発者
+      content: これは、慶應義塾大学理工学部の遠山研究室のメンバーが開発しております。ご意見、ご質問等がありましたら、連絡をお願い致します。日本語、英語、フランス語であれば、可能な限り早く、お答えします。 開発責任者のThomasは、Ruby on Rails、AngularJS、BackboneJS等、最新の言語について様々な知識を持ち、それらが関連した質問にも対応可能です。
   about:
     extraction:
-      head: How does the extraction work ?
-      content: "The extraction is only based on view properties of the rendered HTML document. That is to say, the font, the position and other stuffs like that. Each of these properties have different weights in the process, and the color of the text can be considered more important than the position of the element for instance. We do not consider the tag names or the dom tree position."
+      head: 抽出方法
+      content: ブラウザで表示されたHTMLページ (フォント、位置等) を基に抽出します。これらの幅が異なっていたり、テキストの色であったり、HTMLタグやDOMツリーに影響されないものを基に抽出します。  
     labelling:
-      head: The labelling process
-      content: "Because we do not know how you want to refer to a certain information and which information you want to extract, you have to go through a labelling process, e.g. use our interactive user interface to choose the information and give it a name."
+      head: ラベリング
+      content: どのように情報を参照し、どのような情報を抽出するか決定するために、ラベリングを行う必要があります。ラベリングを行うインターフェースをこのサイトで提供しています。
     retrieval:
       head: How to retrieve the data ?
       content:
@@ -60,11 +60,11 @@ ja:
     new:
       email: メールアドレス
       password: パスワード
-      remember_me: Remember me
-      password_confirmation: Password confirmation
+      remember_me: 自動でログイン
+      password_confirmation: パスワード（確認）
   password:
     new:
-      password_forgotten: Password forgotten ?
+      password_forgotten: パスワードを忘れたら？
       instructions: Send instructions
   websites:
     index:

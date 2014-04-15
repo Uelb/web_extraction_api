@@ -2,6 +2,7 @@ class CentroidsController < ApplicationController
 
   def create
     @website = Website.where(website_params).first_or_create
+    (@website.user = current_user) && @website.save
     params[:labels].each do |value, centroids|
       @label = Label.new
       @label.website = @website

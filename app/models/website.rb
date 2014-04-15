@@ -2,7 +2,7 @@ class Website < ActiveRecord::Base
   has_many :labels, dependent: :destroy
   validates_uniqueness_of :url
   validates_presence_of :url
-  after_create :create_json_folder
+  after_save :update_items
   belongs_to :user
 
   def self.parse html_string
@@ -23,7 +23,7 @@ class Website < ActiveRecord::Base
   end
 
   private
-  def create_json_folder
-    `mkdir #{Rails.root + 'public/jsons' + self.url}`
+  def update_items
+    Website.update_items
   end
 end

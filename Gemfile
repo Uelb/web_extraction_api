@@ -38,3 +38,6 @@ gem 'capistrano-rails', '~> 1.1'
 gem 'capistrano-rvm'
 gem 'capistrano-bundler', '~> 1.1.2'
 gem 'http_accept_language'
+gem 'omniauth-facebook'
+gem 'omniauth-twitter'
+gem "omniauth-google-oauth2"

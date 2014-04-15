@@ -17,5 +17,5 @@ SsqlWebExtractionApi::Application.routes.draw do
   end
   root 'pages#home'
   get '/:locale' => 'pages#home', constraints: {locale: /en|fr|ja/}
-  
+  get '/auth/:provider/callback', to: 'sessions#create'  
 end
