@@ -8,8 +8,8 @@ set :repo_url, 'git@github.com:Oxynum/web_extraction_api.git'
 # ask :branch, proc { `git rev-parse --abbrev-ref HEAD`.chomp }
 
 # Default deploy_to directory is /var/www/my_app
-set :deploy_to, '/home/tommyjam/toobrok'
-set :user, 'tommyjam'
+set :deploy_to, '/home/thomas/Documents/www/toobrok'
+set :user, 'thomas'
 set :use_sudo, false
 set :rails_env, "production"
 set :git_enable_submodules, true
@@ -67,6 +67,15 @@ namespace :deploy do
     end
   end
 
+  desc "Install npm modules"
+  task :npm_install do 
+    on roles(:app), in: :sequence, wait: 5 do
+      within release_path.join('web-extraction') do 
+        execute "npm install"
+      end
+    end
+  end
+
   after :publishing, :restart
 
   after :restart, :clear_cache do
@@ -75,15 +84,6 @@ namespace :deploy do
       # within release_path do
       #   execute :rake, 'cache:clear'
       # end
-    end
-  end
-
-  desc "Install npm modules"
-  task :npm_install do 
-    on roles(:app), in: :sequence, wait: 5 do
-      within release_path.join('web-extraction') do 
-        execute "npm install"
-      end
     end
   end
 
