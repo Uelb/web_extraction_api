@@ -9,10 +9,10 @@ ja:
     logout: ログアウト
     help: ヘルプ
     extraction:
-      new: New extraction
+      new: 新しい抽出
     website:
-      index: Websites List
-    documentation: Documentation
+      index: 抽出したデータ
+    documentation: ドキュメントページ
     sign_in: ログイン
     sign_up: 新規登録
     password_forgotten: パスワードを忘れたら？
@@ -35,27 +35,27 @@ ja:
       head: ラベリング
       content: どのように情報を参照し、どのような情報を抽出するか決定するために、ラベリングを行う必要があります。ラベリングを行うインターフェースをこのサイトで提供しています。
     retrieval:
-      head: How to retrieve the data ?
+      head: どのようにしてデータを抽出するか？
       content:
-        a: It is further explained in our
-        b: documentation page.
-        c: "But basically, we provide a REST interface to access the extracted data, JSON, XML, CSV, and XLS are all the avalaible formats. Please note that this information is updated every hour !"
+        a: ""
+        b: ドキュメントページ
+        c: "に詳細があります。また、抽出したデータ(JSON, XML, CSV, XLSフォーマット)にアクセスするためのRESTインターフェースを提供しています。データは毎時間自動で更新されます。"
     ssql:
-      head: The SSQL project
-      content: Even if you can now use it with other project, this extraction engine was first created in order to increase the possibilities of data input formats of the SuperSQL project; so that we can connect not only to relational databses but also find data directly from the Internet.
+      head: SSQL
+      content: このデータ抽出エンジンは、SSQLプロジェクトの入力データのフォーマットの可能性を広げるために作りました。そのため、リレーショナルデータベースだけでなく、Webから直接データを得ることが出来ます。
     community:
-      head: The community
-      content: Be careful, when you label some information, other users, even if they do not know who labelled it, are able to use it to earn some time without going through the labelling process if what they wish to extract corresponds to what you have already extracted ! But it is not a one side only operation, you will of course be able to benefit from tmhis system to extract information even faster.
+      head: シェア
+      content: 抽出した情報にラベリングをすると、ラベリングしたユーザ自身だけでなく、他のユーザもその情報を利用することが出来ます。
   contact:
-    form:  Contact Form
-    name: Your name
-    email: Your email
-    content: Content
-    send: Send
+    form:  連絡先
+    name: 名前
+    email: メールアドレス
+    content: コメント
+    send: 送信
     check:
-      head: Check it out !
-      content: The web extraction engine is not the only project that the Toyama Laboratory is working one ! If you are interested in more awesome projects, please check them out.
-      address: Address
+      head: 遠山研究室では 
+      content: Toobrokの他にも、遠山研究室には素晴らしい研究プロジェクトがあります！ぜひチェックしてみて下さい！！
+    address: 住所
   sessions:
     new:
       email: メールアドレス
@@ -65,19 +65,19 @@ ja:
   password:
     new:
       password_forgotten: パスワードを忘れたら？
-      instructions: Send instructions
+      instructions: 送信
   websites:
     index:
-      header: List of extracted websites
+      header: 抽出したウェブサイト
     new:
-      header: Extract data from a website
-      url: Website URL (complete), just copy and paste it
-      url_ph: Enter the URL here...
-      submit: Submit
+      header: ウェブから抽出する
+      url: URL (完全な), コピー貼り付け
+      url_ph: こちらにURLを入力して下さい...
+      submit: 送信
       weights_notice: "If you want to modify the weights of the properties used :"
   documentation:
     a: 
-      head: Extract data
+      head: 抽出
       content:
         basics:
           head: Using the interface - Basics
@@ -130,5 +130,5 @@ ja:
       head: Use SuperSQL to display those data
       content: TODO...
     d:
-      head: The community, how to use someone else labels
+      head: シェア, どのようにして他のユーザの抽出したデータを使えるか？
       content: TODO...
