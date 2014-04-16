@@ -1,8 +1,3 @@
-= content_for :head do
-  =stylesheet_link_tag "sign_in", "zocial", "http://fonts.googleapis.com/css?family=Pompiere"
-  %meta{name:'google-signin-scope', content: 'profile'}
-  %meta{name: "google-signin-clientid", content:"1085235126808.apps.googleusercontent.com"}
-  %meta{name: "google-signin-cookiepolicy", content: "single_host_origin"}
 .container
   = form_for(resource, as: resource_name, url: session_path(resource_name), html: {class: 'form-signin', role: :form} ) do |f|
     %h2.form-signin-heading= t('layout.sign_in')
