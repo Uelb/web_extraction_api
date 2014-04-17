@@ -10,8 +10,9 @@
       %tr
         %td{rowspan: website.labels.size}= website.id
         %td{rowspan: website.labels.size}= website.url
-        %td= website.labels.first.try(:value)
-        %td= link_to "Show", website_label_items_path(website, website.labels.first)
+        - if website.labels.first
+          %td= website.labels.first.value
+          %td= link_to "Show", website_label_items_path(website, website.labels.first)
       - website.labels.each_with_index do |label, index|
         - if index != 0
           %tr
