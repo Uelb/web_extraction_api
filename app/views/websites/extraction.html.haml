@@ -8,7 +8,7 @@
   %body
     .extraction-navbar
       .navbar-header.extraction-left
-        %a{href: "#"} Web extraction engine
+        =link_to "Web extraction engine", root_path, confirm: "Are you sure you want to leave this page ?", class: :root_link
       .extraction-right
         %span Choose the level of the extraction
         =select_tag :level, options_for_select([1,2,3,4,5], 2)

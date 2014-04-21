@@ -1,7 +1,7 @@
 groups = []
 window.root = JSON.parse root
 init = ->
-  $("a").click (e)->
+  $("a:not('.root_link')").click (e)->
     event.preventDefault()
 
   Ui.clusterize root, 2, groups
