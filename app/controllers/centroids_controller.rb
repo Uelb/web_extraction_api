@@ -4,7 +4,7 @@ class CentroidsController < ApplicationController
   def create
     @website = Website.where(website_params).first
     @website||= Website.new(website_params)
-    @extraction = Extraction.create extraction_params
+    @extraction = Extraction.new extraction_params
     @extraction.website = @website
     @extraction.user = current_user
     @website.save
