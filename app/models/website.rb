@@ -1,6 +1,6 @@
 class Website < ActiveRecord::Base
   has_many :extractions, dependent: :destroy
-  has_many :labels, dependent: :destroy
+  has_many :labels, through: :extractions
   validates_uniqueness_of :url
   validates_presence_of :url
   has_many :users, through: :extractions

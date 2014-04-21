@@ -13,8 +13,8 @@ class WebsitesController < ApplicationController
   def index 
     @websites = Website.includes(:labels => :centroids)
     respond_to do |format|
-      format.json {render json: @websites.to_json(include: {labels: {include: :centroids}})}
-      format.xml {render xml: @websites.to_xml(include: {labels: {include: :centroids}})}
+      format.json {render json: @websites.to_json(include: {labels: {include: :centroids}} ) }
+      format.xml {render xml: @websites.to_xml(include: {labels: {include: :centroids}} ) }
       format.csv {render text: @websites.to_csv}
       format.xls {send_data @websites.to_csv(col_sep: "\t")}
       format.html{authenticate_user!; render layout: 'dashboard'}

@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
 
   def index
     @website = Website.where(id: params[:website_id]).first
-    @label = Label.includes(:items).where(website_id: params[:website_id], value: params[:label_id]).first
+    @label = Label.includes(:items, :extraction).where(extractions: {website_id: params[:website_id]}, value: params[:label_id]).first
     @items = @label.items
     respond_to do |format|
       format.json {render json: @items}
