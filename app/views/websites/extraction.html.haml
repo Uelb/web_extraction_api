@@ -22,3 +22,6 @@
         / # =image_tag "minus.png", size: "32x32", class: :minus
     #original_page
       = raw(@body)
+
+:javascript
+  weights = #{@weights.to_json};

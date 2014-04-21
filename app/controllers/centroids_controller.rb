@@ -8,6 +8,7 @@ class CentroidsController < ApplicationController
     @extraction.website = @website
     @extraction.user = current_user
     @website.save
+    @extraction.save
     params[:labels].each do |value, centroids|
       @label = Label.new
       @label.website = @website
@@ -22,6 +23,9 @@ class CentroidsController < ApplicationController
         end
         @centroid.save
       end
+    end
+    Thread.new do
+      Website.update_items
     end
     render json: @website.to_json(include: :labels)
   end
