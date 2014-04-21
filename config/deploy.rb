@@ -92,3 +92,5 @@ end
 before "deploy:updated", "deploy:symlink_config_files"
 after "deploy", "deploy:restart", "deploy:cleanup"
 after "deploy", "deploy:npm_install"
+        require './config/boot'
+        require 'airbrake/capistrano'
