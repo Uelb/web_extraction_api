@@ -23,7 +23,7 @@ init = ->
     $(".selected_highlight").removeClass "selected_highlight"
     $(".selected_highlight_image").removeClass "selected_highlight_image"
   $(".extraction-button").click ->
-    elements = $("[class^='selected_highlight']")
+    elements = $(".selected_highlight, .selected_highlight_image")
     if elements.size() is 0
       alert "Please choose some elements before"
       return false
@@ -38,7 +38,7 @@ init = ->
             label = $('#extraction-form input[type="text"]').val()
             if label
               $('.jGrowl-notification').trigger('jGrowl.beforeClose')
-              centroids = $("[class^='selected_highlight']").map (index, element)->
+              centroids = $(".selected_highlight, .selected_highlight_image").map (index, element)->
                 return $(element).attr("centroid")
               centroids = _.uniq centroids
               centroids = _.map centroids, (centroid)->
