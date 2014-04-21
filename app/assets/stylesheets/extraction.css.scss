@@ -30,6 +30,15 @@
   right: 0;
   top: 0;
   z-index: 2147483647;
+
+  .hidden {
+    display: none;
+  }
+
+  .loader {
+    -webkit-filter: invert(100%);
+    vertical-align: middle;
+  }
   
   a {
     color: #999;
@@ -48,7 +57,6 @@
     line-height: 45px;
     margin: auto;
     text-align: center;
-    width: 50%;
 
     img {
       cursor: pointer;
@@ -68,7 +76,7 @@
     color: #fff;
     float: right;
     line-height: 45px;
-    margin-right: 80px;
+    margin-right: 20px;
     vertical-align: middle;
   }
 
@@ -144,4 +152,14 @@
 .selected_highlight {
   background-color: #59b200;
   color: #000;
+}
+
+.image_highlight {
+  -webkit-filter: invert(.1);
+  outline: 2px solid #7fff00;
+}
+
+.selected_highlight_image{
+  -webkit-filter: invert(.1);
+  outline: 2px solid #59b200;
 }

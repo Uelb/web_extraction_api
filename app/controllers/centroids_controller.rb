@@ -1,8 +1,13 @@
 class CentroidsController < ApplicationController
+  before_filter :authenticate_user!
 
   def create
-    @website = Website.where(website_params).first_or_create
-    (@website.user = current_user) && @website.save
+    @website = Website.where(website_params).first
+    @website||= Website.new(website_params)
+    @extraction = Extraction.create extraction_params
+    @extraction.website = @website
+    @extraction.user = current_user
+    @website.save
     params[:labels].each do |value, centroids|
       @label = Label.new
       @label.website = @website
@@ -24,5 +29,8 @@ class CentroidsController < ApplicationController
   private
   def website_params
     params.permit :url
+  end
+  def extraction_params
+    params.require(:weights).permit(:color, :background_color, :z_index, :font_style, :width, :height, :text_decoration, :top_alignment, :left_alignment)
   end
 end

@@ -15,6 +15,7 @@
         %button.extraction-button{'data-container' => "body", 'data-toggle' => "popover", 'data-placement' => "bottom"} Label
         %button.extraction-reset-button Reset
         %button.extraction-submit-button Save
+        =image_tag 'loader.gif', class: [:loader, :hidden]
       .extraction-center
         =image_tag "cross.png", size: "32x32", class: [:selected, :cross]
         =image_tag "plus.png", size: "32x32", class: :plus

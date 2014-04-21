@@ -1,3 +1,5 @@
+require './config/boot'
+require 'airbrake/capistrano3'
 # config valid only for Capistrano 3.1
 lock '3.1.0'
 
@@ -92,5 +94,4 @@ end
 before "deploy:updated", "deploy:symlink_config_files"
 after "deploy", "deploy:restart", "deploy:cleanup"
 after "deploy", "deploy:npm_install"
-        require './config/boot'
-        require 'airbrake/capistrano'
+after "deploy", 'airbrake:deploy'

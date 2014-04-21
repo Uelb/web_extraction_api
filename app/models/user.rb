@@ -3,7 +3,8 @@ class User < ActiveRecord::Base
   # :confirmable, :lockable, :timeoutable and :omniauthable
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :trackable, :validatable
-  has_many :websites
+  has_many :extractions
+  has_many :websites, through: :extractions
 
   def self.find_or_create_from_auth_hash auth_hash
     send((auth_hash['provider'] + "_auth").to_sym, auth_hash)

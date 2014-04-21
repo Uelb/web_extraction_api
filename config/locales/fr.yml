@@ -82,6 +82,16 @@ fr:
       url_ph: Entrer l'URL ici...
       submit: Envoyer
       weights_notice: "Si vous souhaitez modifier le poids des propriétés utilisées :"
+      weights:
+        color: Couleur
+        bg_color: Couleur d'arrière plan
+        width: Largeur
+        height: Hauteur
+        z_index: Superposition
+        text_decoration: Décoration du texte
+        font_style: Police
+        left_alignment: Alignement vertical
+        top_alignment: Alignement horizontal
   documentation:
     a: 
       head: Extraire des données

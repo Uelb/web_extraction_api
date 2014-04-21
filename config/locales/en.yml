@@ -75,6 +75,16 @@ en:
       url_ph: Enter the URL here...
       submit: Submit
       weights_notice: "If you want to modify the weights of the properties used :"
+      weights:
+        color: Color
+        bg_color: Background color
+        width: Width
+        height: Height
+        z_index: Superposition
+        text_decoration: Text decoration
+        font_style: Font style
+        left_alignment: Left alignment
+        top_alignment: Top alignment
   documentation:
     a: 
       head: Extract data

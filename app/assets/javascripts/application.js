@@ -13,6 +13,7 @@
 //= require jquery
 //= require jquery_ujs
 //= require turbolinks
+//= require jquery_plugin
 //= require websites
 //= require flash_messages
 //= require jquery.jgrowl.min

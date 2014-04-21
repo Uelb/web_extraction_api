@@ -1,6 +1,6 @@
 class WebsitesController < ApplicationController
 
-  before_filter :authenticate_user!, only: :new
+  before_filter :authenticate_user!, only: [:new, :extraction]
 
   def get_from_label
     @centroid = Centroid.where(params.slice(:website_id, :label)).first

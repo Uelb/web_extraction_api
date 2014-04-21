@@ -36,11 +36,11 @@ gem 'devise'
 gem 'capistrano', '~> 3.1.0'
 gem 'capistrano-rails', '~> 1.1'
 gem 'capistrano-rvm'
-gem 'capistrano-bundler', '~> 1.1.2'
+gem 'capistrano-bundler', github: 'capistrano/bundler'
 gem 'http_accept_language'
 gem 'omniauth-facebook'
 gem 'omniauth-twitter'
 gem "omniauth-google-oauth2"
 gem "omniauth-github"
 gem 'omniauth-linkedin-oauth2'
-gem "airbrake"
+gem "airbrake", github: 'airbrake/airbrake'

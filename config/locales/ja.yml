@@ -75,6 +75,16 @@ ja:
       url_ph: こちらにURLを入力して下さい...
       submit: 送信
       weights_notice: "If you want to modify the weights of the properties used :"
+      weights:
+        color: 色
+        bg_color: 背景の色
+        width: 幅
+        height: 高さ
+        z_index: 重ね合わせ
+        text_decoration: テキストの装飾
+        font_style: フォントスタイル
+        left_alignment: 垂直整列
+        top_alignment: 平面線形
   documentation:
     a: 
       head: 抽出
