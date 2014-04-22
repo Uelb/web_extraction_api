@@ -86,6 +86,7 @@ ja:
         left_alignment: 垂直整列
         top_alignment: 平面線形
   documentation:
+    support: サポート
     a: 
       head: 抽出
       content:

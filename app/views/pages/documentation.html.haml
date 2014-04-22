@@ -1,81 +1,93 @@
 - content_for :head do 
   =javascript_include_tag "shCore", "shBrushJScript"
   = stylesheet_link_tag "shCore", "shCoreDjango", "shThemeDjango"
-
-.col-md-8.col-md-offset-2
-  .panel-group#accordion
-    .panel.panel-default
-      .panel-heading
-        %h4.panel-title
-          %a{"data-toggle" => "collapse", "data-parent" => "#accordion", href: "#collapseOne" }
-            =t('documentation.a.head')
-      #collapseOne.panel-collapse.collapse.in
-        .panel-body
-          %h5=t('documentation.a.content.basics.head')
-          =t('documentation.a.content.basics.content')
-          %hr
-          %h5=t('documentation.a.content.operations.head')
-          %ol
-            %li
-              %h6
-                =t('documentation.a.content.operations.content.+.head')
-                =image_tag "plus.png", size: "20x20"
-              =t('documentation.a.content.operations.content.+.content')
-            %li
-              %h6
-                =t('documentation.a.content.operations.content.x.head')
-                =image_tag "cross.png", size: "20x20"
-              =t('documentation.a.content.operations.content.x.content')
-            %li
-              %h6
-                =t('documentation.a.content.operations.content.-.head')
-                =image_tag "minus.png", size: "20x20"
-              =t('documentation.a.content.operations.content.-.content')
-          %hr
-          %h5=t('documentation.a.content.level.head')
-          =t('documentation.a.content.level.content')
-          %hr
-          %h5=t('documentation.a.content.save.head')
-          =t('documentation.a.content.save.content')
-    .panel.panel-default
-      .panel-heading
-        %h4.panel-title
-          %a{"data-toggle" => "collapse", "data-parent" => "#accordion", href: "#collapseTwo" }
-            =t('documentation.b.head')
-      #collapseTwo.panel-collapse.collapse
-        .panel-body
-          %h5=t('documentation.b.content.head')
-          =t('documentation.b.content.a')
-          %code GET /websites(.:format)
-          =t('documentation.b.content.b')
-          %code GET /websites/:website_id/labels/:label_name/items(.:format)
-          =t('documentation.b.content.c')
-          %h5=t('documentation.b.content.websites')
-          %code GET /websites(.:format)
-          = render 'pages/documentation/websites'
-          %h5=t('documentation.b.content.website_labels')
-          %code GET /websites/:website_id/labels(.:format)
-          = render 'pages/documentation/website_labels'
-          %h5=t('documentation.b.content.website_label_items')
-          %code GET /websites/:website_id/labels/:label_name/items(.:format)
-          = render 'pages/documentation/website_label_items'
-          =t('documentation.b.content.footer')
-    .panel.panel-default
-      .panel-heading
-        %h4.panel-title
+.col-md-8
+  .panel.panel-info
+    .panel-heading
+      .panel-title=t('documentation.support')
+    .panel-body
+      %ol
+        %li
+          %a{"data-toggle" => "collapse", "data-parent" => "#accordion", href: "#collapseOne" }=t('documentation.a.head')
+        %br
+        #collapseOne.collapse
+          .well
+            %h5=t('documentation.a.content.basics.head')
+            =t('documentation.a.content.basics.content')
+            %hr
+            %h5=t('documentation.a.content.operations.head')
+            %ol
+              %li
+                %h6
+                  =t('documentation.a.content.operations.content.+.head')
+                  =image_tag "plus.png", size: "20x20"
+                =t('documentation.a.content.operations.content.+.content')
+              %li
+                %h6
+                  =t('documentation.a.content.operations.content.x.head')
+                  =image_tag "cross.png", size: "20x20"
+                =t('documentation.a.content.operations.content.x.content')
+              %li
+                %h6
+                  =t('documentation.a.content.operations.content.-.head')
+                  =image_tag "minus.png", size: "20x20"
+                =t('documentation.a.content.operations.content.-.content')
+            %hr
+            %h5=t('documentation.a.content.level.head')
+            =t('documentation.a.content.level.content')
+            %hr
+            %h5=t('documentation.a.content.save.head')
+            =t('documentation.a.content.save.content')
+        %li
+          %a{"data-toggle" => "collapse", "data-parent" => "#accordion", href: "#collapseTwo" }=t('documentation.b.head') 
+        %br
+        #collapseTwo.panel-collapse.collapse
+          .well
+            %h5=t('documentation.b.content.head')
+            =t('documentation.b.content.a')
+            %code GET /websites(.:format)
+            =t('documentation.b.content.b')
+            %code GET /websites/:website_id/labels/:label_name/items(.:format)
+            =t('documentation.b.content.c')
+            %h5=t('documentation.b.content.websites')
+            %code GET /websites(.:format)
+            = render 'pages/documentation/websites'
+            %h5=t('documentation.b.content.website_labels')
+            %code GET /websites/:website_id/labels(.:format)
+            = render 'pages/documentation/website_labels'
+            %h5=t('documentation.b.content.website_label_items')
+            %code GET /websites/:website_id/labels/:label_name/items(.:format)
+            = render 'pages/documentation/website_label_items'
+            =t('documentation.b.content.footer')
+        %li
           %a{"data-toggle" => "collapse", "data-parent" => "#accordion", href: "#collapseThree" }
             =t('documentation.c.head')
-      #collapseThree.panel-collapse.collapse
-        .panel-body
-          =t('documentation.c.content')
-    .panel.panel-default
-      .panel-heading
-        %h4.panel-title
+        %br
+        #collapseThree.panel-collapse.collapse
+          .well
+            =t('documentation.c.content')
+        %li
           %a{"data-toggle" => "collapse", "data-parent" => "#accordion", href: "#collapseFour" }
             =t('documentation.d.head')
-      #collapseFour.panel-collapse.collapse
-        .panel-body
-          =t('documentation.d.content')
+        %br
+        #collapseFour.panel-collapse.collapse
+          .well
+            =t('documentation.d.content')
+
+.col-md-4
+  .panel.panel-info
+    .panel-heading
+      .panel-title=t("layout.contact")
+    .panel-body.small
+      %p=t("documentation.contact")
+      %hr
+      .glyphicon.glyphicon-earphone
+      %span=t("documentation.phone")
+      %span=link_to "+81 (0) 80 3609 2307", "tel:+818036092307"
+      %hr
+      .glyphicon.glyphicon-envelope
+      %span=t("documentation.mail")
+      %span=link_to "thomas@db.ics.keio.ac.jp", "mailto:thomas@db.ics.keio.ac.jp"
 
 :javascript
   SyntaxHighlighter.all()

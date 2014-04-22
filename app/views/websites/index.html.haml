@@ -5,6 +5,9 @@
       %th #
       %th Url
       %th= t('label.many')
+      %th
+      %th
+      %th Actions
   %tbody
     - @websites.each_with_index do |website, index|
       %tr
@@ -13,8 +16,12 @@
         - if website.labels.first
           %td= website.labels.first.value
           %td= link_to "Show", website_label_items_path(website, website.labels.first)
+          %td= link_to "Delete label", website_label_path(website, website.labels.first)
+        %td= link_to "Delete website", website_path(website), method: :delete, confirm: "Are you sure ?"
       - website.labels.each_with_index do |label, index|
         - if index != 0
           %tr
             %td= label.value
             %td= link_to "Show", website_label_items_path(website,label)
+            %td= link_to "Delete label", website_label_path(website, website.labels.first)
+

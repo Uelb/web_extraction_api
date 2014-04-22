@@ -49,4 +49,9 @@ class WebsitesController < ApplicationController
     @head, @body = Website.parse(@html).map(&:to_html)
     render layout: false
   end
+
+  def destroy
+    Website.find(params[:id]).destroy
+    redirect_to websites_path
+  end
 end

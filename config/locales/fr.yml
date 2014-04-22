@@ -93,6 +93,7 @@ fr:
         left_alignment: Alignement vertical
         top_alignment: Alignement horizontal
   documentation:
+    support: Support
     a: 
       head: Extraire des données
       content:

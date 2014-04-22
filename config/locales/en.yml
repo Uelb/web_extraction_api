@@ -86,6 +86,10 @@ en:
         left_alignment: Left alignment
         top_alignment: Top alignment
   documentation:
+    support: Support
+    phone: "Phone :"
+    mail: "Mail :"
+    contact: Do not hesitate to call us or send a mail if you have any questions
     a: 
       head: Extract data
       content:

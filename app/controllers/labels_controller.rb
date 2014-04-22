@@ -16,4 +16,9 @@ class LabelsController < ApplicationController
     @label = Label.where(website_id: params[:website_id], value: params[:id]).first
     render json: @label
   end
+
+  def destroy
+    Label.where(website_id: params[:website_id], value: params[:id]).first.destroy
+    redirect_to websites_path
+  end
 end
