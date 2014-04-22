@@ -7,7 +7,7 @@ class Website < ActiveRecord::Base
 
   def self.parse html_string
     html_doc = Nokogiri::HTML html_string
-    html_doc.at_css("base").remove
+    html_doc.at_css("base").try(:remove)
     body = html_doc.at_css "body"
     head = html_doc.at_css "head"
     return head, body

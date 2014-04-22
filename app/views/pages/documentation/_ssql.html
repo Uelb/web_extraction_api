@@ -1,0 +1,5 @@
+<pre class="brush: sql">
+  GENERATE HTML
+      [menu.id, menu.value, title.id, title.value]
+  FROM api('http://www.toobrok.com/websites/42/labels/:table_name/items.json')
+</pre>

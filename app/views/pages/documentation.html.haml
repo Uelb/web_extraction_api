@@ -1,5 +1,5 @@
 - content_for :head do 
-  =javascript_include_tag "shCore", "shBrushJScript"
+  =javascript_include_tag "shCore", "shBrushJScript", "shBrushSql"
   = stylesheet_link_tag "shCore", "shCoreDjango", "shThemeDjango"
 .col-md-8
   .panel.panel-info
@@ -65,7 +65,8 @@
         %br
         #collapseThree.panel-collapse.collapse
           .well
-            =t('documentation.c.content')
+            =t('documentation.c.content.a')
+            =render 'pages/documentation/ssql'
         %li
           %a{"data-toggle" => "collapse", "data-parent" => "#accordion", href: "#collapseFour" }
             =t('documentation.d.head')
