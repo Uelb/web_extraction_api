@@ -2,7 +2,7 @@ require 'csv'
 class Item < ActiveRecord::Base
   belongs_to :label, touch: true
   validates :value, uniqueness: {scope: :label_id}, presence: true
-  before_save :format_item
+  before_validation :format_item
 
   def self.to_csv(options = {})
     CSV.generate(options) do |csv|
