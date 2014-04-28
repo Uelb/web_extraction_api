@@ -16,7 +16,7 @@ class ItemsController < ApplicationController
 
   def create
     @items = params[:items]
-    Item.create @items.map do |item| 
+    new_items = @items.map do |item| 
       image = false
       if item.starts_with? "image:::"
         image = true
@@ -24,6 +24,7 @@ class ItemsController < ApplicationController
       end
       {label_id: params[:label_id], value: item, image: image}
     end
+    Item.create new_items
     render nothing: true
   end
 end
