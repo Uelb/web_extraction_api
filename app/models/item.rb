@@ -14,6 +14,6 @@ class Item < ActiveRecord::Base
   end
   private
   def format_item
-    self.value = self.value.strip.squeeze.squeeze("\n")
+    self.value = self.value.strip.squeeze(" ").squeeze("\n")
   end
 end

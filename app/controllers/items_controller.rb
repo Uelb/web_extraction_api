@@ -10,7 +10,7 @@ class ItemsController < ApplicationController
       format.csv {render text: @items.to_csv}
       format.xls {send_data @items.to_csv(col_sep: "\t")}
       format.html {authenticate_user! ; render layout: 'dashboard'}
-      format.txt { render text: @items.map(&:value).join("\nTOTO")}
+      format.txt { render text: @items.map(&:value).join("\n")}
     end
   end
 
