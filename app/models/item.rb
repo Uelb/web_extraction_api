@@ -3,6 +3,8 @@ class Item < ActiveRecord::Base
   belongs_to :label, touch: true
   validates :value, uniqueness: {scope: :label_id}, presence: true
   before_validation :format_item
+  belongs_to :parent, class_name: "Item"
+  has_many :children, class_name: "Item", foreign_key: :parent_id
 
   def self.to_csv(options = {})
     CSV.generate(options) do |csv|

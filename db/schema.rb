@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140428061514) do
+ActiveRecord::Schema.define(version: 20140504085335) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -65,15 +65,18 @@ ActiveRecord::Schema.define(version: 20140428061514) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "image",      default: false, null: false
+    t.integer  "parent_id"
   end
 
   add_index "items", ["label_id"], name: "index_items_on_label_id", using: :btree
+  add_index "items", ["parent_id"], name: "index_items_on_parent_id", using: :btree
 
   create_table "labels", force: true do |t|
     t.string   "value"
     t.integer  "extraction_id"
     t.datetime "created_at"
     t.datetime "updated_at"
+    t.boolean  "container"
   end
 
   create_table "users", force: true do |t|

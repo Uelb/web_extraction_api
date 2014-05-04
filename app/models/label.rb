@@ -3,6 +3,7 @@ class Label < ActiveRecord::Base
   belongs_to :extraction, touch: true
   validates_presence_of :extraction
   has_many :items, dependent: :destroy
+  scope :containers, -> {where(container: true)}
 
   def website
     self.extraction.website

@@ -44,3 +44,4 @@ gem "omniauth-google-oauth2"
 gem "omniauth-github"
 gem 'omniauth-linkedin-oauth2'
 gem "airbrake", github: 'airbrake/airbrake'
+gem 'rspec'
