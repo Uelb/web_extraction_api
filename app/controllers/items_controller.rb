@@ -3,6 +3,7 @@ class ItemsController < ApplicationController
   def index
     @website = Website.where(id: params[:website_id]).first
     @label = Label.includes(:items, :extraction).where(extractions: {website_id: params[:website_id]}, value: params[:label_id]).first
+    redirect_to websites_path and return unless @label
     @items = @label.items
     respond_to do |format|
       format.json {render json: @items}
@@ -16,13 +17,14 @@ class ItemsController < ApplicationController
 
   def create
     @items = params[:items]
-    new_items = @items.map do |item| 
+    new_items = @items.map do |item|
       image = false
       if item.starts_with? "image:::"
         image = true
         item.gsub! "image:::", ""
       end
-      {label_id: params[:label_id], value: item, image: image}
+      centroid = Centroid.create_from_array item[:centroid]
+      {label_id: params[:label_id], value: item[:value], image: image, centroid_id: centroid.id}
     end
     Item.create new_items
     render nothing: true
