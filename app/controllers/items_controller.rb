@@ -18,11 +18,10 @@ class ItemsController < ApplicationController
     @items = params[:items]
     new_items = @items.map do |item| 
       image = false
-      if item.starts_with? "image:::"
+      if item[:image]
         image = true
-        item.gsub! "image:::", ""
       end
-      {label_id: params[:label_id], value: item, image: image}
+      item.merge({label_id: params[:label_id]})
     end
     Item.create new_items
     render nothing: true

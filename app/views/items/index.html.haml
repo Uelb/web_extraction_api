@@ -8,8 +8,10 @@
     %tr
       %th #
       %th value
+      %th href / src
   %tbody
     - @items.each_with_index do |item, index|
       %tr
         %td= item.id
         %td= item.value
+        %td= item.link

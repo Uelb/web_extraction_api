@@ -4,6 +4,17 @@ class WebsitesController < ApplicationController
 
   before_filter :authenticate_user!, only: [:new, :extraction]
 
+  def show
+    @website = Website.where(id: params[:id])
+    respond_to do |format|
+      format.json {render json: @website.to_json(include: :labels)}
+      format.xml {render xml: @website.to_xml(include: :labels)}
+      format.csv {render text: @website.to_csv}
+      format.xls {send_data @website.to_csv(col_sep: "\t")}
+      format.html {authenticate_user!; render layout: 'dashboard'}
+    end
+  end
+
   def get_from_label
     @centroid = Centroid.where(params.slice(:website_id, :label)).first
     @items = @centroid.items
