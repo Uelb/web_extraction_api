@@ -9,9 +9,15 @@
       %th #
       %th value
       %th href / src
+      %th Parent
   %tbody
     - @items.each_with_index do |item, index|
       %tr
         %td= item.id
         %td= item.value
         %td= item.link
+        %td
+          - if item.parent
+            = item.parent.value
+            from label
+            = link_to item.parent.label.value, website_label_items_path(@website, item.parent.label)

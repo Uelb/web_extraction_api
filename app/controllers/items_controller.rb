@@ -2,7 +2,7 @@ class ItemsController < ApplicationController
 
   def index
     @website = Website.where(id: params[:website_id]).first
-    @label = Label.includes(:items, :extraction).where(extractions: {website_id: params[:website_id]}, value: params[:label_id]).first
+    @label = Label.includes({items: :parent}, :extraction).where(extractions: {website_id: params[:website_id]}, value: params[:label_id]).first
     redirect_to websites_path and return unless @label
     @items = @label.items
     respond_to do |format|

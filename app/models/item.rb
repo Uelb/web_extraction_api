@@ -1,6 +1,6 @@
 require 'csv'
 class Item < ActiveRecord::Base
-  belongs_to :label, touch: true
+  belongs_to :label
   has_one :extraction, through: :label
   has_one :website, through: :extraction
   has_many :associated_labels, through: :extraction, source: :labels
@@ -22,14 +22,14 @@ class Item < ActiveRecord::Base
   def find_parent
     possible_parents = self.associated_labels.containers.includes(items: :centroid).map(&:items).flatten.map(&:centroid)
     container = self.centroid.find_container possible_parents
-    container.item
+    container.item if container && self != container.item
   end
 
-  def find_children
-    possible_children = self.associated_labels.where(container: false).includes(items: :centroid).map(&:items).flatten.map(&:centroid)
-    p possible_children
-    children = self.centroid.find_contained_centroids possible_children
-    children.map &:item
+  def self.generate_links
+    Item.all.each do |item|
+      item.parent = item.find_parent
+      item.save
+    end
   end
 
   private

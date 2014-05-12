@@ -28,7 +28,7 @@ init = ->
       alert "Please choose some elements before"
       return false
     if $("#extraction-form:visible").size() is 0
-      $.jGrowl "<form id='extraction-form' action='#'><input type='text' placeholder='Enter label here...'></input><input type='submit' id='extraction-label-button'></input></form>", 
+      $.jGrowl "<form id='extraction-form' action='#'><input type='text' placeholder='Enter label here...'></input><br/><label for='container'>Container ?</label><input type='checkbox' name='container'></input><br/><input type='submit' id='extraction-label-button'></input></form>", 
         header: "Choose a label"
         sticky: true
         afterOpen: ->
@@ -44,7 +44,10 @@ init = ->
               centroids = _.map centroids, (centroid)->
                 return groups[centroid]
               console.log centroids
-              Ui.result.labels[label] = centroids
+              Ui.result.labels[label] = 
+                centroids: centroids
+                container: $("#extraction-form input[type='checkbox']").is(":checked")
+              $("#extraction-form input[type='checkbox']").prop('checked', false);
               $(".selected_highlight").removeClass "selected_highlight"
               $(".selected_highlight_image").removeClass "selected_highlight_image"
             return false

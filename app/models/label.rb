@@ -12,5 +12,4 @@ class Label < ActiveRecord::Base
   def to_param
     value
   end
-
 end

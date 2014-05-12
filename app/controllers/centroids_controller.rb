@@ -9,10 +9,12 @@ class CentroidsController < ApplicationController
     @extraction.user = current_user
     @website.save
     @extraction.save
-    params[:labels].each do |value, centroids|
+    params[:labels].each do |value, info|
       @label = Label.new
       @label.extraction = @extraction
       @label.value = value
+      @label.container = info[:container]
+      centroids = info[:centroids]
       centroids.each do |index, centroid|
         @centroid = Centroid.new
         @centroid.label = @label
@@ -26,6 +28,7 @@ class CentroidsController < ApplicationController
     end
     Thread.new do
       Website.update_items
+      Item.generate_links
     end
     render json: @website.to_json(include: :extractions)
   end
