@@ -5,6 +5,7 @@ class Item < ActiveRecord::Base
   before_validation :format_item
   belongs_to :parent, class_name: "Item"
   has_many :children, class_name: "Item", foreign_key: :parent_id
+  belongs_to :centroid
 
   def self.to_csv(options = {})
     CSV.generate(options) do |csv|
