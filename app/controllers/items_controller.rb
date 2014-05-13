@@ -33,6 +33,7 @@ class ItemsController < ApplicationController
       hash = {}
       labels.each_with_index do |label, index|
         hash[label] = children[index].value if children[index]
+        hash[label]||= ""
       end
       @result << hash
     end
