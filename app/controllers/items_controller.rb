@@ -15,6 +15,34 @@ class ItemsController < ApplicationController
     end
   end
 
+  def container_index
+    @website = Website.where(id: params[:website_id]).first
+    @label = Label.includes({items: {children: :label}}, :extraction).where(extractions: {website_id: params[:website_id]}, value: params[:label_id]).first
+    redirect_to websites_path and return unless @label && @label.container
+    
+    @result = []
+
+    # Le nom des différents labels disponibles, le premier nom est value
+    labels = ["value"]
+    labels += @label.items.map(&:children).flatten.map(&:label).uniq.sort_by(&:id).map &:value
+    @label.items.map do |item|
+      children = [item]
+      children += item.children.sort_by do |child|
+        child.label.id
+      end
+      hash = {}
+      labels.each_with_index do |label, index|
+        hash[label] = children[index].value if children[index]
+      end
+      @result << hash
+    end
+    respond_to do |format|
+      format.json {render json: @result}
+      format.xml {render xml: @result.to_xml}
+      format.html {authenticate_user! ; render layout: 'dashboard'}
+    end
+  end
+
   def create
     @items = params[:items]
     new_items = @items.map do |item|

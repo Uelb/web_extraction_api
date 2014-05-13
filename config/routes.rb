@@ -8,6 +8,7 @@ SsqlWebExtractionApi::Application.routes.draw do
     get 'documentation', to: 'pages#documentation'
     resources :websites, only: [:new, :index, :destroy, :show] do 
       resources :labels, only: [:show, :index, :destroy] do 
+        get 'container_items', to: 'items#container_index'
         resources :items, only: :index
       end
     end
