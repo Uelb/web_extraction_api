@@ -1,0 +1,15 @@
+%h2.page-header 
+  Edit label #
+  =@label.id
+  |
+  =@label.value
+
+=form_for [@website, @label] do |f|
+  .form-group
+    =f.label :value, "Name"
+    =f.text_field :value, class: "form-control"
+  .checkbox
+    =f.label :container do 
+      =f.check_box :container
+      Container
+  =f.submit "Save", class: :btn

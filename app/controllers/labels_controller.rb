@@ -17,8 +17,24 @@ class LabelsController < ApplicationController
     render json: @label
   end
 
+  def edit
+    @website = Website.find params[:website_id]
+    @label = Label.includes(:extraction).where(extractions: {website_id: params[:website_id]}, value: params[:id]).first
+    render layout: 'dashboard'
+  end
+
+  def update
+    @label = Label.includes(:extraction).where(extractions: {website_id: params[:website_id]}, value: params[:id]).first
+    @label.update_attributes update_params
+    redirect_to websites_path and return
+  end
+
   def destroy
     Label.where(website_id: params[:website_id], value: params[:id]).first.destroy
     redirect_to websites_path
+  end
+
+  def update_params
+    params.require(:label).permit(:value, :container)
   end
 end
