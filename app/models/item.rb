@@ -21,7 +21,7 @@ class Item < ActiveRecord::Base
 
   def find_parent
     possible_parents = self.associated_labels.containers.includes(items: :centroid).map(&:items).flatten.map(&:centroid)
-    container = self.centroid.find_container possible_parents
+    container = self.centroid.try :find_container, possible_parents
     container.item if container && self != container.item && self.label != container.item.label && container.item.label.container
   end
 
