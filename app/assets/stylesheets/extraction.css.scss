@@ -145,19 +145,19 @@
 }
 
 .highlight {
-  background-color: #7fff00;
-  border-radius: 10px;
-  color: #000080;
+  background-color: #7fff00 !important;
+  border-radius: 10px !important;
+  color: #000080 !important;
 }
 
 .selected_highlight {
-  background-color: #59b200;
-  color: #000;
+  background-color: #59b200 !important;
+  color: #000 !important;
 }
 
 .image_highlight {
-  -webkit-filter: invert(.1);
-  outline: 2px solid #7fff00;
+  -webkit-filter: invert(.1) !important;
+  outline: 2px solid #7fff00 !important;
 }
 
 .selected_highlight_image{
