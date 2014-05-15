@@ -1,6 +1,6 @@
 class Centroid < ActiveRecord::Base
   belongs_to :label, touch: true
-  has_one :item
+  has_many :items
 
   def self.create_from_array centroid
     centroid_array = centroid[:centroid]

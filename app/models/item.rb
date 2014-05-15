@@ -22,7 +22,9 @@ class Item < ActiveRecord::Base
   def find_parent
     possible_parents = self.associated_labels.containers.includes(items: :centroid).map(&:items).flatten.map(&:centroid)
     container = self.centroid.try :find_container, possible_parents
-    container.item if container && self != container.item && self.label != container.item.label && container.item.label.container
+    return unless container
+    parent = container.items.where(label_id: self.associated_labels.containers.pluck(:id)).first
+    parent if parent && self != parent && self.label != parent.label && parent.label.container
   end
 
   def self.generate_links
