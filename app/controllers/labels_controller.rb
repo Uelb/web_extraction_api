@@ -30,7 +30,9 @@ class LabelsController < ApplicationController
   end
 
   def destroy
-    Label.where(website_id: params[:website_id], value: params[:id]).first.destroy
+    @website = Website.find params[:website_id]
+    @label = Label.includes(:extraction).where(extractions: {website_id: params[:website_id]}, value: params[:id]).first
+    @label.destroy
     redirect_to websites_path
   end
 

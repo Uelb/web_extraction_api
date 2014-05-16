@@ -23,16 +23,13 @@ class ItemsController < ApplicationController
     @result = []
 
     # Le nom des différents labels disponibles, le premier nom est value
-    labels = [Label.new({value: "value"})]
-    labels += @label.items.map(&:children).flatten.map(&:label).uniq.sort_by(&:id)
     @label.items.map do |item|
       children = item.children
       hash = {}
-      labels.each_with_index do |label, index|
-        hash[label.value] = children.where(label_id: label.id).first.try(:value)
-        hash[label.value]||= ""
+      children.each do |child|
+        hash[child.label.value] = child.value
       end
-      hash["value"] << item.value
+      hash["value"] = item.value
       @result << hash
     end
     respond_to do |format|
