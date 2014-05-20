@@ -13,7 +13,7 @@ class LabelsController < ApplicationController
   end
 
   def show
-    @label = Label.where(website_id: params[:website_id], value: params[:id]).first
+    @label = Label.includes(:extraction).where(extractions: {website_id: params[:website_id]}, value: params[:id]).first
     render json: @label
   end
 
