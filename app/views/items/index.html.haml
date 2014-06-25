@@ -10,6 +10,9 @@
     =link_to "Csv format", {format: :csv}, class: [:btn, 'btn-default']
     =link_to "Text format", {format: :txt}, class: [:btn, 'btn-default']
     =link_to "Xml format", {format: :xml}, class: [:btn, 'btn-default']
+    - if @label.container
+      =link_to "Container json", website_label_container_items_path(@website, @label, {format: :json}), class: [:btn, 'btn-default']
+      =link_to "Container xml", website_label_container_items_path(@website, @label, {format: :xml}), class: [:btn, 'btn-default']
 %table.table.table-hover
   %thead
     %tr

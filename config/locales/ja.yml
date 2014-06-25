@@ -85,6 +85,9 @@ ja:
         font_style: フォントスタイル
         left_alignment: 垂直整列
         top_alignment: 平面線形
+        padding_l_r: ...
+        padding_t_b: ...
+        border_width: ...
   documentation:
     support: サポート
     a: 

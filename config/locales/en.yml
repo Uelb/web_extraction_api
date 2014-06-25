@@ -85,6 +85,9 @@ en:
         font_style: Font style
         left_alignment: Left alignment
         top_alignment: Top alignment
+        padding_l_r: Horizontal padding
+        padding_t_b: Vertical padding
+        border_width: Border width
   documentation:
     support: Support
     phone: "Phone :"
@@ -125,6 +128,11 @@ en:
           content: |
             When you have finished labelling what you want to extract, just click on the save button, and you will be redirected to the list of extracted websites page.
             If the one you just extracted does not display yet, it is normal, wait a minute, refresh the page and you should see it, same for the items of the website.
+        container:
+          head: The container property
+          content: |
+            When you label a group of elements, you can see on the labelling interface a checkboxed called container. This checkbox allows you to specify that this label can be the parent of another one, for example, question can be the parent of title, or description.
+            The parent property is however not calculated perfectly and you rely on it for sensitive extractions.
     b: 
       head: Retrieve those data
       content:

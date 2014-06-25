@@ -14,6 +14,9 @@ class Centroid < ActiveRecord::Base
       left_alignment: centroid_array[6],
       top_alignment: centroid_array[7],
       z_index: centroid_array[8],
+      padding_l_r: centroid_array[9],
+      padding_t_b: centroid_array[10],
+      border_width: centroid_array[11],
       level: centroid[:depth]
     ).first_or_create
   end 

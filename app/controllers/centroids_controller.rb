@@ -20,7 +20,7 @@ class CentroidsController < ApplicationController
         @centroid.label = @label
         @centroid.level = centroid[:depth]
         [:color=, :background_color=, :width=, :height=, :text_decoration=, :font_style=, 
-          :left_alignment=, :top_alignment=, :z_index=].each_with_index do |attribute, index|
+          :left_alignment=, :top_alignment=, :z_index=, :padding_l_r=, :padding_t_b=, :border_width=].each_with_index do |attribute, index|
           @centroid.send attribute, centroid[:centroid][index]
         end
         @centroid.save
@@ -38,6 +38,6 @@ class CentroidsController < ApplicationController
     params.permit :url
   end
   def extraction_params
-    params.require(:weights).permit(:color, :background_color, :z_index, :font_style, :width, :height, :text_decoration, :top_alignment, :left_alignment)
+    params.require(:weights).permit(:color, :background_color, :z_index, :font_style, :width, :height, :text_decoration, :top_alignment, :left_alignment, :padding_l_r, :padding_t_b, :border_width)
   end
 end

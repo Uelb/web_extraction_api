@@ -1,6 +1,6 @@
 class WebsitesController < ApplicationController
 
-  PROPERTIES_ARRAY = [:color, :background_color, :width, :height, :text_decoration, :font_style, :left_alignment, :top_alignment, :z_index]
+  PROPERTIES_ARRAY = [:color, :background_color, :width, :height, :text_decoration, :font_style, :left_alignment, :top_alignment, :z_index, :padding_l_r, :padding_t_b, :border_width]
 
   before_filter :authenticate_user!, only: [:new, :extraction]
 
@@ -38,6 +38,10 @@ class WebsitesController < ApplicationController
 
   def extraction
     @url = params[:url]
+    @url.strip!
+    if !@url.start_with? "http"
+      @url = "http://#{@url}"
+    end
     @weights = params[:weights]
     temp = []
     PROPERTIES_ARRAY.each do |property|

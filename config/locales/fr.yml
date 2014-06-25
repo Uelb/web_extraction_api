@@ -92,6 +92,9 @@ fr:
         font_style: Police
         left_alignment: Alignement vertical
         top_alignment: Alignement horizontal
+        padding_l_r: Padding Horizontal
+        padding_t_b: Padding Vertical
+        border_width: Largeur de bordure
   documentation:
     support: Support
     a: 
@@ -130,6 +133,12 @@ fr:
           content: |
             Lorsque vous avez fini d'étiqueter vos données, il vous suffit de cliquer sur le bouton "Sauvegarder" et vous serez redirigé vers la page affichant la liste des sites disponibles.
             Si celui que vous venez d'extraire n'est pas encore affiché, c'est normal, attendez une petite minute, rafraîchissez la page, et vous devriez le voir apparaître, de même pour les éléments de ce site.
+        container:
+          head: Les conteneurs
+          content: |
+            Pendant le processus d'étiquettage, vous pourrez remarquer une checkbox container sur l'interace d'étiquettage, cela vous permet de dire à notre système que les éléments sélectionnés peuvent être parents d'autres éléments, par exemple, Question peut être le container de Titre, Description ou Auteur.
+            Néanmoins, le calcul de cette propriété n'est pas encore parfait et nous vous conseillons de ne pas vous appuyer dessus pour des opérations sensibles.
+
     b: 
       head: Récupérer des données extraites
       content:
