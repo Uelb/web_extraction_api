@@ -66,11 +66,12 @@ init = ->
       header: "Configuration panel"
       sticky: true
       afterOpen: ->
+        # $("div.jGrowl inputt[type='text']").focusin ->
+          # Highlight maybe in pink the element of the label which is focused in.
         $("div.jGrowl input[type='text']").focusout ->
           new_label = $(this).val()
           old_label = $(this).attr("name")
-          $("#config-panel input[name='#{old_label}']").val(new_label)
-          $("#config-panel input[name='#{old_label}'], div.jGrowl input[name='#{old_label}").attr("name", new_label)
+          $("#config-panel input[name='#{old_label}'], div.jGrowl input[name='#{old_label}").attr("name", new_label).attr("value", new_label)
           Ui.result.labels[new_label] = Ui.result.labels[old_label]
           delete Ui.result.labels[old_label]
         $('div.jGrowl .delete').click ->
