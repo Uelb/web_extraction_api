@@ -172,6 +172,18 @@
   outline: 2px solid #59b200;
 }
 
+.temp_highlight {
+  background-color: #FF69B4 !important;
+  border-radius: 10px !important;
+  color: #000080 !important;
+  outline: 1px solid #0f0;
+}
+
+.temp_img_highlight {
+  -webkit-filter: invert(.1) !important;
+  outline: 1px solid #0f0;
+}
+
 .jGrowl-message {
   
   img {

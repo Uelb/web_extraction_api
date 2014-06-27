@@ -66,14 +66,20 @@ init = ->
       header: "Configuration panel"
       sticky: true
       afterOpen: ->
-        # $("div.jGrowl inputt[type='text']").focusin ->
-          # Highlight maybe in pink the element of the label which is focused in.
+        $("div.jGrowl input[type='text']").focusin ->
+          label = $(this).attr("name")
+          centroids = Ui.result.labels[label].centroids
+          underscore.each centroids, (centroid) ->
+            Ui.highlight Ui.getIdSelector(centroid), "temp_highlight", "temp_img_highlight"
         $("div.jGrowl input[type='text']").focusout ->
+          $(".temp_highlight").removeClass("temp_highlight")
+          $(".temp_img_highlight").removeClass("temp_img_highlight")
           new_label = $(this).val()
           old_label = $(this).attr("name")
-          $("#config-panel input[name='#{old_label}'], div.jGrowl input[name='#{old_label}").attr("name", new_label).attr("value", new_label)
-          Ui.result.labels[new_label] = Ui.result.labels[old_label]
-          delete Ui.result.labels[old_label]
+          if(new_label != old_label)
+            $("#config-panel input[name='#{old_label}'], div.jGrowl input[name='#{old_label}").attr("name", new_label).attr("value", new_label)
+            Ui.result.labels[new_label] = Ui.result.labels[old_label]
+            delete Ui.result.labels[old_label]
         $('div.jGrowl .delete').click ->
           label = $(this).parent().find('input').val()
           delete Ui.result.labels[label]
