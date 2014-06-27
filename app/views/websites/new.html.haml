@@ -38,5 +38,9 @@
         .col-md-2=number_field_tag 'weights[padding_l_r]', "", class: 'form-control', placeholder: '1.00'
         .col-md-2=label_tag 'weights[padding_t_b]', t('websites.new.weights.padding_t_b')
         .col-md-2=number_field_tag 'weights[padding_t_b]', "", class: 'form-control', placeholder: '1.00'
-        .col-md-2=label_tag 'weights[border_width]', t('websites.new.weights.border_width')
-        .col-md-2=number_field_tag 'weights[border_width]', "", class: 'form-control', placeholder: '1.00'
+        .col-md-2=label_tag 'weights[border_horizontal_width]', t('websites.new.weights.border_horizontal_width')
+        .col-md-2=number_field_tag 'weights[border_horizontal_width]', "", class: 'form-control', placeholder: '1.00'
+      %br
+      .row
+        .col-md-2=label_tag 'weights[border_vertical_width]', t('websites.new.weights.border_vertical_width')
+        .col-md-2=number_field_tag 'weights[border_vertical_width]', "", class: 'form-control', placeholder: '1.00'

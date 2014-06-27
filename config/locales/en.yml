@@ -87,7 +87,8 @@ en:
         top_alignment: Top alignment
         padding_l_r: Horizontal padding
         padding_t_b: Vertical padding
-        border_width: Border width
+        border_horizontal_width: Border Horizontal width
+        border_vertical_width: Border Vertical width
   documentation:
     support: Support
     phone: "Phone :"

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140624041742) do
+ActiveRecord::Schema.define(version: 20140627041846) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -32,7 +32,8 @@ ActiveRecord::Schema.define(version: 20140624041742) do
     t.integer  "label_id"
     t.float    "padding_l_r"
     t.float    "padding_t_b"
-    t.float    "border_width"
+    t.float    "border_horizontal_width"
+    t.float    "border_vertical_width"
   end
 
   create_table "extractions", force: true do |t|
@@ -51,7 +52,8 @@ ActiveRecord::Schema.define(version: 20140624041742) do
     t.datetime "updated_at"
     t.float    "padding_l_r"
     t.float    "padding_t_b"
-    t.float    "border_width"
+    t.float    "border_horizontal_width"
+    t.float    "border_vertical_width"
   end
 
   add_index "extractions", ["user_id"], name: "index_extractions_on_user_id", using: :btree

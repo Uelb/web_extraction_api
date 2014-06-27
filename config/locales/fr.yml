@@ -94,7 +94,8 @@ fr:
         top_alignment: Alignement horizontal
         padding_l_r: Padding Horizontal
         padding_t_b: Padding Vertical
-        border_width: Largeur de bordure
+        border_horizontal_width: Largeur de bordure horizontale
+        border_vertical_width: Largeur de bordure verticale
   documentation:
     support: Support
     a: 

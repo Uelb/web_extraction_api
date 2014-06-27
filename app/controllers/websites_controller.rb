@@ -1,6 +1,6 @@
 class WebsitesController < ApplicationController
 
-  PROPERTIES_ARRAY = [:color, :background_color, :width, :height, :text_decoration, :font_style, :left_alignment, :top_alignment, :z_index, :padding_l_r, :padding_t_b, :border_width]
+  PROPERTIES_ARRAY = [:color, :background_color, :width, :height, :text_decoration, :font_style, :left_alignment, :top_alignment, :z_index, :padding_l_r, :padding_t_b, :border_horizontal_width, :border_vertical_width]
 
   before_filter :authenticate_user!, only: [:new, :extraction]
 
@@ -56,6 +56,7 @@ class WebsitesController < ApplicationController
       end
     end
     @html = Website.get_html_from_node_script(@url, @weights)
+    p @html
     temp = {}
     PROPERTIES_ARRAY.each_with_index do |property, index|
       temp[property] = @weights[index]

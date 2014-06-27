@@ -40,8 +40,8 @@ init = ->
               $('.jGrowl-notification').trigger('jGrowl.beforeClose')
               centroids = $(".selected_highlight, .selected_highlight_image").map (index, element)->
                 return $(element).attr("centroid")
-              centroids = _.uniq centroids
-              centroids = _.map centroids, (centroid)->
+              centroids = underscore.uniq centroids
+              centroids = underscore.map centroids, (centroid)->
                 return groups[centroid]
               console.log centroids
               Ui.result.labels[label] = 

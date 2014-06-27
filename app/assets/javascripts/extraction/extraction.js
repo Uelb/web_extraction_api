@@ -11,6 +11,6 @@
 // about supported directives.
 //
 //= require jquery
+//= require jquery.jgrowl.min
 //= require ui
 //= require extraction/main
-//= require jquery.jgrowl.min
