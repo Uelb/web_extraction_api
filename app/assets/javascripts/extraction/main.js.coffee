@@ -28,6 +28,7 @@ init = ->
       alert "Please choose some elements before"
       return false
     if $("#extraction-form:visible").size() is 0
+      $("div.jGrowl").jGrowl("close");
       $.jGrowl "<form id='extraction-form' action='#'><input type='text' placeholder='Enter label here...'></input><br/><label for='container'>Container ?</label><input type='checkbox' name='container'></input><br/><input type='submit' id='extraction-label-button'></input></form>", 
         header: "Choose a label"
         sticky: true
@@ -50,6 +51,7 @@ init = ->
               $("#extraction-form input[type='checkbox']").prop('checked', false);
               $(".selected_highlight").removeClass "selected_highlight"
               $(".selected_highlight_image").removeClass "selected_highlight_image"
+              $("#config-panel").append("<div><input type='text' name='#{label}' value='#{label}'></input><img class='delete' src='/assets/delete.png'/></div>")
             return false
   $(".extraction-submit-button").click ->
     if not (jQuery.isEmptyObject Ui.result.labels)
@@ -57,6 +59,24 @@ init = ->
       Ui.save()
     else
       alert("You have not labeled any items yet.")
+
+  $(".config").click ->
+    $("div.jGrowl").jGrowl("close");
+    $.jGrowl $('#config-panel').html(),
+      header: "Configuration panel"
+      sticky: true
+      afterOpen: ->
+        $("div.jGrowl input[type='text']").focusout ->
+          new_label = $(this).val()
+          old_label = $(this).attr("name")
+          $("#config-panel input[name='#{old_label}']").val(new_label)
+          $("#config-panel input[name='#{old_label}'], div.jGrowl input[name='#{old_label}").attr("name", new_label)
+          Ui.result.labels[new_label] = Ui.result.labels[old_label]
+          delete Ui.result.labels[old_label]
+        $('div.jGrowl .delete').click ->
+          label = $(this).parent().find('input').val()
+          delete Ui.result.labels[label]
+          $("#config-panel input[name='#{label}'], div.jGrowl input[name='#{label}").parent().remove()
 
 $ init
 

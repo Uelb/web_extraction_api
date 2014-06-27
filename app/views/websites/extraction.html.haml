@@ -18,10 +18,14 @@
         %button.extraction-reset-button Reset
         %button.extraction-submit-button Save
         =image_tag 'loader.gif', class: [:loader, :hidden]
+        =image_tag 'config.png',size: "32x32", class: :config
       .extraction-center
         =image_tag "cross.png", size: "32x32", class: :cross
         =image_tag "plus.png", size: "32x32", class: [:selected, :plus]
         / # =image_tag "minus.png", size: "32x32", class: :minus
+    #config-panel{style: "display:none"}
+      List of labels :
+      %br
     #original_page
       = raw(@body)
 
