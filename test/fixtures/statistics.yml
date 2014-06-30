@@ -1,0 +1,33 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  website_id: 
+  color: 1
+  background_color: 1
+  width: 1
+  height: 1
+  text_decoration: 1
+  font_style: 1
+  left_alignment: 1
+  top_alignment: 1
+  z_index: 1
+  padding_l_r: 1
+  padding_t_b: 1
+  border_horizontal_width: 1
+  border_vertical_width: 1
+
+two:
+  website_id: 
+  color: 1
+  background_color: 1
+  width: 1
+  height: 1
+  text_decoration: 1
+  font_style: 1
+  left_alignment: 1
+  top_alignment: 1
+  z_index: 1
+  padding_l_r: 1
+  padding_t_b: 1
+  border_horizontal_width: 1
+  border_vertical_width: 1

@@ -9,6 +9,9 @@ class CentroidsController < ApplicationController
     @extraction.user = current_user
     @website.save
     @extraction.save
+    @statistic = Statistic.new statistic_params
+    @statistic.extraction = @extraction
+    @statistic.save
     params[:labels].each do |value, info|
       @label = Label.new
       @label.extraction = @extraction
@@ -39,5 +42,9 @@ class CentroidsController < ApplicationController
   end
   def extraction_params
     params.require(:weights).permit(:color, :background_color, :z_index, :font_style, :width, :height, :text_decoration, :top_alignment, :left_alignment, :padding_l_r, :padding_t_b, :border_horizontal_width, :border_vertical_width)
+  end
+
+  def statistic_params
+    params.require(:statistic).permit(:color, :background_color, :width, :height, :text_decoration, :font_style, :left_alignment, :top_alignment, :z_index, :padding_l_r, :padding_t_b, :border_horizontal_width, :border_vertical_width)
   end
 end

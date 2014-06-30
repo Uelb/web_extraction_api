@@ -11,7 +11,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 20140627041846) do
+ActiveRecord::Schema.define(version: 20140630055904) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -88,6 +88,25 @@ ActiveRecord::Schema.define(version: 20140627041846) do
     t.datetime "created_at"
     t.datetime "updated_at"
     t.boolean  "container",     default: false
+  end
+
+  create_table "statistics", force: true do |t|
+    t.integer  "color",                   default: 0
+    t.integer  "background_color",        default: 0
+    t.integer  "width",                   default: 0
+    t.integer  "height",                  default: 0
+    t.integer  "text_decoration",         default: 0
+    t.integer  "font_style",              default: 0
+    t.integer  "left_alignment",          default: 0
+    t.integer  "top_alignment",           default: 0
+    t.integer  "z_index",                 default: 0
+    t.integer  "padding_l_r",             default: 0
+    t.integer  "padding_t_b",             default: 0
+    t.integer  "border_horizontal_width", default: 0
+    t.integer  "border_vertical_width",   default: 0
+    t.datetime "created_at"
+    t.datetime "updated_at"
+    t.integer  "extraction_id"
   end
 
   create_table "users", force: true do |t|
