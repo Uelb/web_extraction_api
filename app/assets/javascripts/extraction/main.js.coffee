@@ -1,90 +1,90 @@
 groups = []
 window.root = JSON.parse root
 init = ->
-  $("a:not('.root_link')").click (event)->
+  jq("a:not('.root_link')").click (event)->
     event.preventDefault()
 
   Ui.clusterize root, 2, groups
   Ui.bindGroups groups
 
-  $("#level").change ->
+  jq("#level").change ->
     Ui.unbindGroups groups
-    $(".selected_highlight").removeClass "selected_highlight"
-    $(".selected_highlight_image").removeClass "selected_highlight_image"
+    jq(".selected_highlight").removeClass "selected_highlight"
+    jq(".selected_highlight_image").removeClass "selected_highlight_image"
     groups = []
-    Ui.clusterize root, $(this).val(), groups
+    Ui.clusterize root, jq(this).val(), groups
     Ui.bindGroups groups
 
-  $(".extraction-center img").click ->
-    $(".extraction-center .selected").removeClass "selected"
-    $(this).addClass "selected"
+  jq(".extraction-center img").click ->
+    jq(".extraction-center .selected").removeClass "selected"
+    jq(this).addClass "selected"
 
-  $(".extraction-reset-button").click ->
-    $(".selected_highlight").removeClass "selected_highlight"
-    $(".selected_highlight_image").removeClass "selected_highlight_image"
-  $(".extraction-button").click ->
-    elements = $(".selected_highlight, .selected_highlight_image")
+  jq(".extraction-reset-button").click ->
+    jq(".selected_highlight").removeClass "selected_highlight"
+    jq(".selected_highlight_image").removeClass "selected_highlight_image"
+  jq(".extraction-button").click ->
+    elements = jq(".selected_highlight, .selected_highlight_image")
     if elements.size() is 0
       alert "Please choose some elements before"
       return false
-    if $("#extraction-form:visible").size() is 0
-      $("div.jGrowl").jGrowl("close");
-      $.jGrowl "<form id='extraction-form' action='#'><input type='text' placeholder='Enter label here...'></input><br/><label for='container'>Container ?</label><input type='checkbox' name='container'></input><br/><input type='submit' id='extraction-label-button'></input></form>", 
+    if jq("#extraction-form:visible").size() is 0
+      jq("div.jGrowl").jGrowl("close");
+      jq.jGrowl "<form id='extraction-form' action='#'><input type='text' placeholder='Enter label here...'></input><br/><label for='container'>Container ?</label><input type='checkbox' name='container'></input><br/><input type='submit' id='extraction-label-button'></input></form>", 
         header: "Choose a label"
         sticky: true
         afterOpen: ->
-          $("#extraction-form input[type='text']").focus()
-          $('#extraction-form').submit (event)->
+          jq("#extraction-form input[type='text']").focus()
+          jq('#extraction-form').submit (event)->
             event.preventDefault()
-            label = $('#extraction-form input[type="text"]').val()
+            label = jq('#extraction-form input[type="text"]').val()
             if label
-              $('.jGrowl-notification').trigger('jGrowl.beforeClose')
-              centroids = $(".selected_highlight, .selected_highlight_image").map (index, element)->
-                return $(element).attr("centroid")
+              jq('.jGrowl-notification').trigger('jGrowl.beforeClose')
+              centroids = jq(".selected_highlight, .selected_highlight_image").map (index, element)->
+                return jq(element).attr("centroid")
               centroids = underscore.uniq centroids
               centroids = underscore.map centroids, (centroid)->
                 return groups[centroid]
               console.log centroids
               Ui.result.labels[label] = 
                 centroids: centroids
-                container: $("#extraction-form input[type='checkbox']").is(":checked")
-              $("#extraction-form input[type='checkbox']").prop('checked', false);
-              $(".selected_highlight").removeClass "selected_highlight"
-              $(".selected_highlight_image").removeClass "selected_highlight_image"
-              $("#config-panel").append("<div><input type='text' name='#{label}' value='#{label}'></input><img class='delete' src='/assets/delete.png'/></div>")
+                container: jq("#extraction-form input[type='checkbox']").is(":checked")
+              jq("#extraction-form input[type='checkbox']").prop('checked', false);
+              jq(".selected_highlight").removeClass "selected_highlight"
+              jq(".selected_highlight_image").removeClass "selected_highlight_image"
+              jq("#config-panel").append("<div><input type='text' name='#{label}' value='#{label}'></input><img class='delete' src='/assets/delete.png'/></div>")
             return false
-  $(".extraction-submit-button").click ->
-    if not (jQuery.isEmptyObject Ui.result.labels)
-      $('.loader').removeClass('hidden')
+  jq(".extraction-submit-button").click ->
+    if not (jq.isEmptyObject Ui.result.labels)
+      jq('.loader').removeClass('hidden')
       Ui.save()
     else
       alert("You have not labeled any items yet.")
 
-  $(".config").click ->
-    $("div.jGrowl").jGrowl("close");
-    $.jGrowl $('#config-panel').html(),
+  jq(".config").click ->
+    jq("div.jGrowl").jGrowl("close");
+    jq.jGrowl jq('#config-panel').html(),
       header: "Configuration panel"
       sticky: true
       afterOpen: ->
-        $("div.jGrowl input[type='text']").focusin ->
-          label = $(this).attr("name")
+        jq("div.jGrowl input[type='text']").focusin ->
+          label = jq(this).attr("name")
           centroids = Ui.result.labels[label].centroids
           underscore.each centroids, (centroid) ->
             Ui.highlight Ui.getIdSelector(centroid), "temp_highlight", "temp_img_highlight"
-        $("div.jGrowl input[type='text']").focusout ->
-          $(".temp_highlight").removeClass("temp_highlight")
-          $(".temp_img_highlight").removeClass("temp_img_highlight")
-          new_label = $(this).val()
-          old_label = $(this).attr("name")
+        jq("div.jGrowl input[type='text']").focusout ->
+          jq(".temp_highlight").removeClass("temp_highlight")
+          jq(".temp_img_highlight").removeClass("temp_img_highlight")
+          new_label = jq(this).val()
+          old_label = jq(this).attr("name")
           if(new_label != old_label)
-            $("#config-panel input[name='#{old_label}'], div.jGrowl input[name='#{old_label}").attr("name", new_label).attr("value", new_label)
+            jq("#config-panel input[name='#{old_label}'], div.jGrowl input[name='#{old_label}").attr("name", new_label).attr("value", new_label)
             Ui.result.labels[new_label] = Ui.result.labels[old_label]
             delete Ui.result.labels[old_label]
-        $('div.jGrowl .delete').click ->
-          label = $(this).parent().find('input').val()
+        jq('div.jGrowl .delete').click ->
+          label = jq(this).parent().find('input').val()
           delete Ui.result.labels[label]
-          $("#config-panel input[name='#{label}'], div.jGrowl input[name='#{label}").parent().remove()
+          jq("#config-panel input[name='#{label}'], div.jGrowl input[name='#{label}").parent().remove()
 
-$ init
+jq init
 
 window.groups = groups
