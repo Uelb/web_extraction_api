@@ -1,13 +1,9 @@
 class FeedbacksController < ApplicationController
 
-  def create
-    Feedback.create feedback_params
-    redirect_to contact_path, notice: "Thank you for your feedback, we will answer you as soon as possible"
+  before_filter :authenticate_user!
+  def my_user
+  	respond_to do |format|
+  		format.json {render json: current_user}
+  	end
   end
-
-  private
-  def feedback_params
-    params.require(:feedback).permit :name, :email, :content
-  end
-
 end

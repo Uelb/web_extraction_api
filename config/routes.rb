@@ -12,10 +12,10 @@ SsqlWebExtractionApi::Application.routes.draw do
         resources :items, only: :index
       end
     end
-    resources :feedbacks, only: :create
     resources :items, only: :create
     match '/*path' => 'application#cors_preflight_check', :via => :options
   end
+  get '/current_user', to: 'feedbacks#my_user'
   root 'pages#home'
   get '/:locale' => 'pages#home', constraints: {locale: /en|fr|ja/}
   get '/auth/:provider/callback', to: 'sessions#create'  

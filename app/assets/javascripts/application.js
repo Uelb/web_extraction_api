@@ -18,3 +18,4 @@
 //= require flash_messages
 //= require jquery.jgrowl.min
 //= require bootstrap.js
+//= require uservoice
