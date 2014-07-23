@@ -4,19 +4,9 @@
 .wrapper
   .container
     .col-md-5.col-md-offset-1
-      %h3=t('contact.form')
+      %h3 Contact
       %hr
-      = form_for @feedback, url: feedbacks_path, html: { role: :form} do |f|
-        .form-group
-          = f.label :name,  t('contact.name')
-          = f.text_field :name, placeholder: "Enter Name", class: 'form-control'
-        .form-group
-          = f.label :email,  t('contact.email')
-          = f.email_field :email, placeholder: "Enter email", class: 'form-control'
-        .form-group
-          = f.label :content,  t('contact.content')
-          = f.text_area :content, class: 'form-control'
-        = f.button t('contact.send'), class: ['btn', 'btn-default', 'btn-block']
+      %div{"data-uv-default-mode" => "support", "data-uv-forum-id" => "259755", "data-uv-height" => "550px", "data-uv-inline" => "classic_widget", "data-uv-link-color" => "#007dbf", "data-uv-mode" => "full", "data-uv-primary-color" => "#cc6d00", "data-uv-width" => "100%"}
     .col-md-5.col-md-offset-1
       %h3 Google Map
       %hr
