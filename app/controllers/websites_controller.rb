@@ -22,7 +22,7 @@ class WebsitesController < ApplicationController
   end
 
   def index 
-    @websites = Website.includes(:labels => :centroids)
+    @websites = Website.includes(:labels => :centroids).order("websites.id DESC")
     respond_to do |format|
       format.json {render json: @websites.to_json(include: {labels: {include: :centroids}} ) }
       format.xml {render xml: @websites.to_xml(include: {labels: {include: :centroids}} ) }
@@ -56,7 +56,7 @@ class WebsitesController < ApplicationController
       end
     end
     @html = Website.get_html_from_node_script(@url, @weights)
-    p @html
+    # p @html
     temp = {}
     PROPERTIES_ARRAY.each_with_index do |property, index|
       temp[property] = @weights[index]

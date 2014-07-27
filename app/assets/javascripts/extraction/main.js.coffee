@@ -1,6 +1,7 @@
 groups = []
-window.root = JSON.parse root
+jq = $ if $ == jQuery
 init = ->
+  window.root = JSON.parse root
   jq("a:not('.root_link')").click (event)->
     event.preventDefault()
 

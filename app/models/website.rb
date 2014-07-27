@@ -6,10 +6,11 @@ class Website < ActiveRecord::Base
   has_many :users, through: :extractions
 
   def self.parse html_string
-    html_doc = Nokogiri::HTML html_string
+    html = html_string.sub(/^<!DOCTYPE html(.*)$/, '<!DOCTYPE html>')
+    html_doc = Nokogiri::HTML html
     html_doc.at_css("base").try(:remove)
-    body = html_doc.at_css "body"
-    head = html_doc.at_css "head"
+    body = html_doc.xpath "/html/body"
+    head = html_doc.xpath "/html/head"
     return head, body
   end
 
